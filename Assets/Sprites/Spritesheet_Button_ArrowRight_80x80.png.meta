@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 83731e27688f5bc498a012f017be6aff
+guid: 69679c3d90054fd498339ceb15cc8fc8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7514076803250077951
-    second: Spritesheet_Button_Round_80x80_0
+      213: 3410708653414589707
+    second: Spritesheet_Button_ArrowRight_80x80_0
   - first:
-      213: 1207257357742219464
-    second: Spritesheet_Button_Round_80x80_1
+      213: 1071385780551888867
+    second: Spritesheet_Button_ArrowRight_80x80_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -121,7 +121,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Spritesheet_Button_Round_80x80_0
+      name: Spritesheet_Button_ArrowRight_80x80_0
       rect:
         serializedVersion: 2
         x: 0
@@ -135,14 +135,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff049b09a0d574860800000000000000
-      internalID: 7514076803250077951
+      spriteID: b05a0271375455f20800000000000000
+      internalID: 3410708653414589707
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spritesheet_Button_Round_80x80_1
+      name: Spritesheet_Button_ArrowRight_80x80_1
       rect:
         serializedVersion: 2
         x: 80
@@ -156,8 +156,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c0a3b8ab2a01c010800000000000000
-      internalID: 1207257357742219464
+      spriteID: 3ef2333e0b35ede00800000000000000
+      internalID: 1071385780551888867
       vertices: []
       indices: 
       edges: []
