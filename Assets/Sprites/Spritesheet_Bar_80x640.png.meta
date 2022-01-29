@@ -3,11 +3,11 @@ guid: 169fbb15890ce50438df59d5714dd578
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3991766006687831025
-    second: Spritesheet_Bar_160x640_0
+      213: 2209872209221180220
+    second: Spritesheet_Bar_80x640_0
   - first:
-      213: -5286371098580927285
-    second: Spritesheet_Bar_160x640_1
+      213: 6550631481864378797
+    second: Spritesheet_Bar_80x640_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -105,11 +105,23 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Spritesheet_Bar_160x640_0
+      name: Spritesheet_Bar_80x640_0
       rect:
         serializedVersion: 2
         x: 0
@@ -123,20 +135,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0c64e857f56a98c0800000000000000
-      internalID: -3991766006687831025
+      spriteID: c3bd2add01b0bae10800000000000000
+      internalID: 2209872209221180220
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spritesheet_Bar_160x640_1
+      name: Spritesheet_Bar_80x640_1
       rect:
         serializedVersion: 2
-        x: 86
-        y: 6
-        width: 68
-        height: 628
+        x: 80
+        y: 0
+        width: 80
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,8 +156,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bcc31368e7903a6b0800000000000000
-      internalID: -5286371098580927285
+      spriteID: da9540340a488ea50800000000000000
+      internalID: 6550631481864378797
       vertices: []
       indices: 
       edges: []
@@ -153,7 +165,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 95e5a049f092c3445b262ab7adfcefe0
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
