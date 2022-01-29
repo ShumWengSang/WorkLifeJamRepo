@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using RoboRyanTron.QuickButtons;
 
 public class CameraHorizontal : MonoBehaviour
 {
@@ -12,18 +13,16 @@ public class CameraHorizontal : MonoBehaviour
     [Range(0, 1)]
     public float duration = 0.25f;
 
-    private bool canProcessInput = true;
-
-    // Start is called before the first frame update
-    void Start()
+    public QuickButton setCameraPosX = new QuickButton(input =>
     {
-        MoveHorizontalTiles();
-    }
+        CameraHorizontal demo = input as CameraHorizontal;
+        demo.transform.position = new Vector3(demo.GetCurrTile().transform.position.x, demo.transform.position.y, demo.transform.position.z);
+    });
 
     // Update is called once per frame
     void Update()
     {
-        if (!canProcessInput)
+        if (!GlobalPlayer.stats.CanInput)
             return;
         if(Input.GetKeyDown(KeyCode.A))
         {
@@ -48,7 +47,8 @@ public class CameraHorizontal : MonoBehaviour
 
     private void MoveHorizontalTiles()
     {
-        this.transform.DOMoveX(tiles[tileIndex].transform.position.x, duration).SetEase(easing).OnComplete(() => { canProcessInput = true; }); ;
-        canProcessInput = false;
+        Debug.Log(tiles[tileIndex].transform.position.x.ToString());
+        this.transform.DOMoveX(tiles[tileIndex].transform.position.x, duration).SetEase(easing).OnComplete(() => { GlobalPlayer.stats.CanInput = true; }); ;
+        GlobalPlayer.stats.CanInput = false;
     }
 }

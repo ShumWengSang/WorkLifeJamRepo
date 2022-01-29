@@ -23,6 +23,8 @@ public class CameraVertical : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!GlobalPlayer.stats.CanInput)
+            return;
         if(Input.GetKeyDown(KeyCode.W))
         {
             if (topTileMovement.isActiveAndEnabled)
