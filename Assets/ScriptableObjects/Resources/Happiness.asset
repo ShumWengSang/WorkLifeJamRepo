@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 443d95172fb603844a9fa683e37ac24d, type: 3}
-  m_Name: PlayerStats
+  m_Script: {fileID: 11500000, guid: decb52af78aab394dafe2accbd963f4a, type: 3}
+  m_Name: Happiness
   m_EditorClassIdentifier: 
-  stats:
-    CanInput: 1
-    Happiness: 0
-    Stress: 0
-    Money: 0
+  resourceStartingValues:
+    currentValue: 50
+    maxValue: 100
+    growthRate: 0

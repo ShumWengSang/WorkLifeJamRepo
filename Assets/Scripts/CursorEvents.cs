@@ -10,7 +10,7 @@ public class CursorEvents : MonoBehaviour, IPointerDownHandler, IPointerEnterHan
     public UnityEvent cursorUp;
     public UnityEvent cursorEnter;
     public UnityEvent cursorExit;
-    public UnityEvent cursorStay;
+    public UnityEvent cursorHold;
 
     private Coroutine cursorDownCoroutine { get; set; }
 
@@ -44,7 +44,7 @@ public class CursorEvents : MonoBehaviour, IPointerDownHandler, IPointerEnterHan
                 break;
             }
 
-            cursorStay.Invoke();
+            cursorHold.Invoke();
 
             yield return null;
         }

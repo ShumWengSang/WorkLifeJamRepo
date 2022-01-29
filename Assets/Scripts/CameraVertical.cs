@@ -23,12 +23,14 @@ public class CameraVertical : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GlobalPlayer.stats.CanInput)
+        if (!Player.CanInput)
             return;
+
         if(Input.GetKeyDown(KeyCode.W))
         {
             if (topTileMovement.isActiveAndEnabled)
                 return;
+
             SwapTiles();
             Sequence seq = DOTween.Sequence();
             seq.Append(this.transform.DOMoveY(middleRoad.position.y, toRoadDuration));
@@ -40,6 +42,7 @@ public class CameraVertical : MonoBehaviour
         {
             if (bottomTileMovement.isActiveAndEnabled)
                 return;
+
             SwapTiles();
             Sequence seq = DOTween.Sequence();
             seq.Append(this.transform.DOMoveY(middleRoad.position.y, toRoadDuration));
@@ -53,6 +56,4 @@ public class CameraVertical : MonoBehaviour
         topTileMovement.enabled = !topTileMovement.enabled;
         bottomTileMovement.enabled = !topTileMovement.enabled;
     }
-
-
 }

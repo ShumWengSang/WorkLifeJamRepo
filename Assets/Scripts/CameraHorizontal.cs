@@ -22,19 +22,23 @@ public class CameraHorizontal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GlobalPlayer.stats.CanInput)
+        if (!Player.CanInput)
             return;
+
         if(Input.GetKeyDown(KeyCode.A))
         {
             if (tileIndex < 1)
                 return;
+
             tileIndex--;
             MoveHorizontalTiles();
         }
+
         if (Input.GetKeyDown(KeyCode.D))
         {
             if (tileIndex >= tiles.Length - 1)
                 return;
+
             tileIndex++;
             MoveHorizontalTiles();
         }
@@ -48,7 +52,7 @@ public class CameraHorizontal : MonoBehaviour
     private void MoveHorizontalTiles()
     {
         Debug.Log(tiles[tileIndex].transform.position.x.ToString());
-        this.transform.DOMoveX(tiles[tileIndex].transform.position.x, duration).SetEase(easing).OnComplete(() => { GlobalPlayer.stats.CanInput = true; }); ;
-        GlobalPlayer.stats.CanInput = false;
+        this.transform.DOMoveX(tiles[tileIndex].transform.position.x, duration).SetEase(easing).OnComplete(() => { Player.CanInput = true; }); ;
+        Player.CanInput = false;
     }
 }
