@@ -13,11 +13,11 @@ public class DayManager : MonoBehaviour
 
     public DayInfo currentDay => days[dayIndex];
 
-    private int dayIndex = 0;
+    private int dayIndex = -1;
 
     private void Start()
     {
-        StartDay(dayIndex);
+        
     }
 
     public void StartDay(int index)
