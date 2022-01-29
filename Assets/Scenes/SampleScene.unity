@@ -3305,6 +3305,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1864977856}
   - component: {fileID: 1864977855}
+  - component: {fileID: 1864977857}
   m_Layer: 0
   m_Name: DayManager
   m_TagString: Untagged
@@ -3324,10 +3325,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bb5be0ace1de35498bcba2fb2a11799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TimeResource: {fileID: 11400000, guid: 168cf437bcd412c43bd23ced34e3f3f2, type: 2}
   days:
-  - {fileID: 11400000, guid: db69af1a8544a7247aa40ab9204395fc, type: 2}
-  - {fileID: 11400000, guid: 35928fc276f3b2143b3a4fc081191820, type: 2}
-  dayTimer: {fileID: 0}
+  - dayLength: 120
+    tiles: []
+  - dayLength: 120
+    tiles: []
 --- !u!4 &1864977856
 Transform:
   m_ObjectHideFlags: 0
@@ -3342,6 +3345,44 @@ Transform:
   m_Father: {fileID: 1581282973}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1864977857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864977854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c236f6008771354995d2f8974df07e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thresholdEvents:
+  - thresholdValue: 0
+    unityEvent:
+      localResourceCost:
+        resource: {fileID: 0}
+        cost: 0
+      globalResourceCost:
+        resource: {fileID: 0}
+        cost: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1864977855}
+            m_TargetAssemblyTypeName: DayManager, Assembly-CSharp
+            m_MethodName: DisableAllTiles
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+  accrueEvents: []
+  resource: {fileID: 11400000, guid: 168cf437bcd412c43bd23ced34e3f3f2, type: 2}
 --- !u!1 &1973338276
 GameObject:
   m_ObjectHideFlags: 0

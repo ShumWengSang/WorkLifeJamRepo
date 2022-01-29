@@ -13,4 +13,5 @@ public interface IResource
     float GetCurrent();
     float GetMaximum();
     void AddValue(float value);
+    void SetValue(float value);
 }

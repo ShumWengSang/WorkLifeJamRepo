@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Day", menuName = "Day")]
-public class DayInfo : ScriptableObject
+[System.Serializable]
+public class DayInfo
 {
     public float dayLength = 120f;
+
+    public List<GameObject> tiles = new List<GameObject>();
 }

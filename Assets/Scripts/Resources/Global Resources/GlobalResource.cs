@@ -84,4 +84,9 @@ public class GlobalResource : ScriptableObject, IResource
     {
         ((IResource)resource).AddValue(value);
     }
+
+    public void SetValue(float value)
+    {
+        ((IResource)resource).SetValue(value);
+    }
 }
