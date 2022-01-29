@@ -79,4 +79,9 @@ public class GlobalResource : ScriptableObject, IResource
     {
         resource.Grow();
     }
+
+    public void AddValue(float value)
+    {
+        ((IResource)resource).AddValue(value);
+    }
 }

@@ -21,11 +21,17 @@ public class MainMenu : MonoBehaviour
             image.DOColor(opaqueEnd, fadeDuration);
         }
 
-        Invoke(nameof(PlayGame), fadeDuration);
+        Invoke(nameof(PlayGame), fadeDuration+.05f);
     }
 
     public void PlayGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+        Debug.Log("Quit Program");
     }
 }

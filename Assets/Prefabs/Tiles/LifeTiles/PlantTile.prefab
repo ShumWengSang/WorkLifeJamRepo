@@ -202,55 +202,76 @@ MonoBehaviour:
   thresholdEvents:
   - thresholdValue: 0
     unityEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2278916742945305580}
-          m_TargetAssemblyTypeName: PercentValueBehavior, Assembly-CSharp
-          m_MethodName: Subtract
-          m_Mode: 4
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 1
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+      localResourceCost:
+        resource: {fileID: 0}
+        cost: 0
+      globalResourceCost:
+        resource: {fileID: 0}
+        cost: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 2278916742945305580}
+            m_TargetAssemblyTypeName: LocalResource, Assembly-CSharp
+            m_MethodName: Subtract
+            m_Mode: 4
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 1
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
   accrueEvents:
   - accrueTarget: 50
     resetAfterInvoke: 1
     unityEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2278916742945305580}
-          m_TargetAssemblyTypeName: PercentValueBehavior, Assembly-CSharp
-          m_MethodName: Add
-          m_Mode: 4
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 1
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+      localResourceCost:
+        resource: {fileID: 0}
+        cost: 0
+      globalResourceCost:
+        resource: {fileID: 0}
+        cost: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 2278916742945305580}
+            m_TargetAssemblyTypeName: LocalResource, Assembly-CSharp
+            m_MethodName: AddValue
+            m_Mode: 4
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 1
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
   - accrueTarget: 10
     resetAfterInvoke: 1
     unityEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 11400000, guid: 3f7b851909a6ff84ab3ae9402e2e1e98, type: 2}
-          m_TargetAssemblyTypeName: GlobalResource, Assembly-CSharp
-          m_MethodName: Add
-          m_Mode: 4
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 1
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+      localResourceCost:
+        resource: {fileID: 0}
+        cost: 0
+      globalResourceCost:
+        resource: {fileID: 0}
+        cost: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 3f7b851909a6ff84ab3ae9402e2e1e98, type: 2}
+            m_TargetAssemblyTypeName: GlobalResource, Assembly-CSharp
+            m_MethodName: AddValue
+            m_Mode: 4
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 3
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
   resource: {fileID: 2828080283203821499}
 --- !u!1 &8000272534872750019
 GameObject:
@@ -320,20 +341,27 @@ MonoBehaviour:
   thresholdEvents:
   - thresholdValue: 1
     unityEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 12468435585838896}
-          m_TargetAssemblyTypeName: Tile, Assembly-CSharp
-          m_MethodName: Upgrade
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+      localResourceCost:
+        resource: {fileID: 0}
+        cost: 0
+      globalResourceCost:
+        resource: {fileID: 0}
+        cost: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 12468435585838896}
+            m_TargetAssemblyTypeName: Tile, Assembly-CSharp
+            m_MethodName: Upgrade
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
   accrueEvents: []
   resource: {fileID: 2278916742945305580}
 --- !u!1 &8922907622650392860
@@ -471,32 +499,67 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorDown:
-    m_PersistentCalls:
-      m_Calls: []
+    localResourceCost:
+      resource: {fileID: 0}
+      cost: 0
+    globalResourceCost:
+      resource: {fileID: 0}
+      cost: 0
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls: []
   cursorUp:
-    m_PersistentCalls:
-      m_Calls: []
+    localResourceCost:
+      resource: {fileID: 0}
+      cost: 0
+    globalResourceCost:
+      resource: {fileID: 0}
+      cost: 0
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls: []
   cursorEnter:
-    m_PersistentCalls:
-      m_Calls: []
+    localResourceCost:
+      resource: {fileID: 0}
+      cost: 0
+    globalResourceCost:
+      resource: {fileID: 0}
+      cost: 0
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls: []
   cursorExit:
-    m_PersistentCalls:
-      m_Calls: []
+    localResourceCost:
+      resource: {fileID: 0}
+      cost: 0
+    globalResourceCost:
+      resource: {fileID: 0}
+      cost: 0
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls: []
   cursorHold:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2828080283203821499}
-        m_TargetAssemblyTypeName: PercentValueBehavior, Assembly-CSharp
-        m_MethodName: AddByDeltaTime
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 20
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+    localResourceCost:
+      resource: {fileID: 0}
+      cost: 0
+    globalResourceCost:
+      resource: {fileID: 11400000, guid: 56c61d0596ae80d459d118999f77f919, type: 2}
+      cost: 0.016
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2828080283203821499}
+          m_TargetAssemblyTypeName: LocalResource, Assembly-CSharp
+          m_MethodName: AddByDeltaTime
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 20
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &9006473931023550515
 GameObject:
   m_ObjectHideFlags: 0
