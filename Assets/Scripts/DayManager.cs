@@ -51,6 +51,8 @@ public class DayManager : MonoBehaviour
     {
         EnableCurrentDayTiles();
         SetTimeResource();
+
+        ResourceEvents.CanTrigger = true;
     }
 
     private void EnableCurrentDayTiles()

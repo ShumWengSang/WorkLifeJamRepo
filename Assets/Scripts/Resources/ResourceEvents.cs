@@ -7,6 +7,7 @@ using UnityEngine;
 /// </summary>
 public abstract class ResourceEvents : MonoBehaviour
 {
+    public static bool CanTrigger { get; set; } = false;
     protected abstract IResource value { get; }
 
     [Header("Events", order = 1)]
@@ -51,6 +52,9 @@ public abstract class ResourceEvents : MonoBehaviour
 
     protected virtual void OnPercentValueChanged(object sender, ValueChangedEventArgs e)
     {
+        if (!ResourceEvents.CanTrigger)
+            return;
+
         UpdateThresholdEvents((IResource)sender, e);
         UpdateAccrueEvents(e);
     }
