@@ -20,7 +20,7 @@ public class ValueAccrueEvent
     private bool invoked { get; set; } = false;
 
     [SerializeField]
-    private UnityEvent<FloatEventArgs> unityEvent = new UnityEvent<FloatEventArgs>();
+    private CostUnityEvent<FloatEventArgs> unityEvent = new CostUnityEvent<FloatEventArgs>();
 
     public void Invoke(float value) => unityEvent.Invoke(value);
 

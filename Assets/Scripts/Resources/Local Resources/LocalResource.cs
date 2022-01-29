@@ -70,4 +70,9 @@ public class LocalResource : MonoBehaviour, IResource
     {
         resource.Grow();
     }
+
+    public void AddValue(float value)
+    {
+        ((IResource)resource).AddValue(value);
+    }
 }

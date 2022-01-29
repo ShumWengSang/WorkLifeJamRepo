@@ -6,11 +6,11 @@ using UnityEngine.EventSystems;
 
 public class CursorEvents : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    public UnityEvent cursorDown;
-    public UnityEvent cursorUp;
-    public UnityEvent cursorEnter;
-    public UnityEvent cursorExit;
-    public UnityEvent cursorHold;
+    public CostUnityEvent cursorDown;
+    public CostUnityEvent cursorUp;
+    public CostUnityEvent cursorEnter;
+    public CostUnityEvent cursorExit;
+    public CostUnityEvent cursorHold;
 
     private Coroutine cursorDownCoroutine { get; set; }
 

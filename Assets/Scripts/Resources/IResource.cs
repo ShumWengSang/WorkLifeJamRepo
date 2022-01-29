@@ -12,4 +12,5 @@ public interface IResource
     event EventHandler<ValueChangedEventArgs> ValueChanged;
     float GetCurrent();
     float GetMaximum();
+    void AddValue(float value);
 }

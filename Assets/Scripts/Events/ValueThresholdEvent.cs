@@ -13,7 +13,7 @@ public class ValueThresholdEvent
     public float thresholdValue = 0f;
 
     [SerializeField]
-    private UnityEvent<FloatEventArgs> unityEvent = new UnityEvent<FloatEventArgs>();
+    private CostUnityEvent<FloatEventArgs> unityEvent = new CostUnityEvent<FloatEventArgs>();
 
     public void Invoke(float value) => unityEvent.Invoke(value);
 }
