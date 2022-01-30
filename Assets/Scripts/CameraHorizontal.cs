@@ -16,7 +16,7 @@ public class CameraHorizontal : MonoBehaviour
     public QuickButton setCameraPosX = new QuickButton(input =>
     {
         CameraHorizontal demo = input as CameraHorizontal;
-        demo.transform.position = new Vector3(demo.GetCurrTile().transform.position.x, demo.transform.position.y, demo.transform.position.z);
+        demo.transform.position = new Vector3(demo.GetCurrTile().transform.position.x+20, demo.transform.position.y, demo.transform.position.z);
     });
 
     // Update is called once per frame
@@ -52,7 +52,7 @@ public class CameraHorizontal : MonoBehaviour
     private void MoveHorizontalTiles()
     {
         Debug.Log(tiles[tileIndex].transform.position.x.ToString());
-        this.transform.DOMoveX(tiles[tileIndex].transform.position.x, duration).SetEase(easing).OnComplete(() => { Player.CanInput = true; }); ;
+        this.transform.DOMoveX(tiles[tileIndex].transform.position.x+20, duration).SetEase(easing).OnComplete(() => { Player.CanInput = true; }); ;
         Player.CanInput = false;
     }
 }
