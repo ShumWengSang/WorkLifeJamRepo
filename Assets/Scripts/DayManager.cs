@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Objec that runs through the day cycle for each day in the game.
@@ -13,12 +14,9 @@ public class DayManager : MonoBehaviour
 
     public DayInfo currentDay => days[dayIndex];
 
+    [SerializeField]
+    private List<GameObject> parentTiles = new List<GameObject>();
     private int dayIndex = -1;
-
-    private void Start()
-    {
-        
-    }
 
     public void StartDay(int index)
     {
@@ -49,7 +47,9 @@ public class DayManager : MonoBehaviour
 
     private void InitializeDay()
     {
+        DisableAllTiles();
         EnableCurrentDayTiles();
+        RedrawTiles();
         SetTimeResource();
 
         ResourceEvents.CanTrigger = true;
@@ -87,5 +87,13 @@ public class DayManager : MonoBehaviour
         }
 
         return allTiles;
+    }
+
+    private void RedrawTiles()
+    {
+        foreach (GameObject tile in parentTiles)
+        {
+            LayoutRebuilder.ForceRebuildLayoutImmediate(tile.transform as RectTransform);
+        }
     }
 }
