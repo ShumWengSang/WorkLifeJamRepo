@@ -25,7 +25,7 @@ public class EndofDayManager : MonoBehaviour
     {
         ResourceEvents.CanTrigger = false;
 
-        fadeScreen.FadeIn(dayFadeOutTimer, easing);
+        fadeScreen.FadeIn(dayFadeOutTimer);
         Invoke(nameof(SetupStats), dayFadeOutTimer);
         Invoke(nameof(ShowStats), dayFadeOutTimer+waitTimer);
     }

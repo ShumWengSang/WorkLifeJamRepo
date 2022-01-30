@@ -19,5 +19,6 @@ MonoBehaviour:
   RandomPitchUp: 0
   PlayOnAwake: 0
   Loop: 0
-  Mixer: {fileID: 0}
-  Variations: []
+  Mixer: {fileID: 4629807470469930581, guid: 7cf488c0483a4394f82479b58009f289, type: 2}
+  Variations:
+  - Clip: {fileID: 8300000, guid: d0e3d833527c249418391aaf017ae9e9, type: 3}
