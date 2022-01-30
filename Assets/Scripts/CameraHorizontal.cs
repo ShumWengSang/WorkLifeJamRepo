@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -7,6 +8,8 @@ using RoboRyanTron.QuickButtons;
 
 public class CameraHorizontal : MonoBehaviour
 {
+    public event EventHandler Moved;
+
     public Transform parentTile;
     public int tileIndex = 0;
     public DG.Tweening.Ease easing;
@@ -69,7 +72,11 @@ public class CameraHorizontal : MonoBehaviour
 
     private void MoveHorizontalTiles()
     {
-        this.transform.DOMoveX(GetCurrTile().transform.position.x+20, duration).SetEase(easing).OnComplete(() => { Player.CanInput = true; }); ;
+        this.transform.DOMoveX(GetCurrTile().transform.position.x+20, duration).SetEase(easing).OnComplete(() => 
+        { 
+            Player.CanInput = true;
+            Moved?.Invoke(this, EventArgs.Empty);
+        }); ;
         Player.CanInput = false;
     }
 

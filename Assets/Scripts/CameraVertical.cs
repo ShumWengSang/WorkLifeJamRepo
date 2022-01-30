@@ -9,6 +9,8 @@ using RoboRyanTron.QuickButtons;
 
 public class CameraVertical : MonoBehaviour
 {
+    public event EventHandler Moved;
+
     public Transform middleRoad;
 
     public CameraHorizontal topTileMovement;
@@ -66,7 +68,11 @@ public class CameraVertical : MonoBehaviour
         seq.Append(this.transform.DOMoveY(middleRoad.position.y, toRoadDuration));
         seq.Append(this.transform.DOMoveX(bottomTileMovement.GetCurrTile().position.x + 20, horiDuration));
         seq.Append(this.transform.DOMoveY(bottomTileMovement.GetCurrTile().position.y, toTileDuration));
-        seq.OnComplete(() => { Player.CanInput = true; });
+        seq.OnComplete(() => 
+        { 
+            Player.CanInput = true;
+            Moved?.Invoke(this, EventArgs.Empty);
+        });
 
         background.DOColor(Color.clear, toRoadDuration+ horiDuration);
 
