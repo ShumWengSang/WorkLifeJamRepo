@@ -7,6 +7,7 @@ using DG.Tweening;
 public class WanderPress : MonoBehaviour
 {
     public RectTransform range;
+    public bool alwaysWandering = false;
 
     public bool onlyOnInteractable;
     private bool hasButton;
@@ -27,6 +28,8 @@ public class WanderPress : MonoBehaviour
         {
             hasButton = true;
         }
+
+        
         myTransform = gameObject.transform;
     }
 
@@ -35,10 +38,10 @@ public class WanderPress : MonoBehaviour
         var randWander = Random.Range(minWanderTime, maxWanderTime);
         Wandering = true;
 
-        var X_box = range.TransformPoint(range.rect.x, 0, 0).x;
-        var width_box = range.TransformDirection(range.rect.width,0,0).x;
-        var y_box = range.TransformPoint(0, range.rect.y, 0).y;
-        var height_box = range.TransformDirection(0, range.rect.height, 0).y;
+        var X_box = range.TransformPoint(range.rect.x, 0, 0).x - 10;
+        var width_box = range.TransformDirection(range.rect.width,0,0).x - 10;
+        var y_box = range.TransformPoint(0, range.rect.y, 0).y - 10;
+        var height_box = range.TransformDirection(0, range.rect.height, 0).y - 10;
 
         Debug.DrawLine(new Vector2(X_box, y_box), new Vector2(X_box+width_box, y_box), Color.red, randWander);
         Debug.DrawLine(new Vector2(X_box, y_box), new Vector2(X_box, y_box+height_box), Color.green, randWander);
@@ -62,6 +65,11 @@ public class WanderPress : MonoBehaviour
         }
 
         if(Wandering == false && (hasButton && button.interactable == true || onlyOnInteractable == false))
+        {
+            Wander();
+        }
+
+        if (Wandering == false && alwaysWandering)
         {
             Wander();
         }

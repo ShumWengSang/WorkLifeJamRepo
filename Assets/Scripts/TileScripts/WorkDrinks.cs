@@ -54,6 +54,8 @@ public class WorkDrinks : MonoBehaviour
                 numberOfPress = 4;
                 break;
             }
+            case 3:
+            case 2:
             case 1:
             {
                 numberOfPress = 6;
@@ -118,6 +120,8 @@ public class WorkDrinks : MonoBehaviour
 
         hold.interactable = false;
         unresolvedPressCount++;
+        
+        
     }
 
     public void ButtonPress()
