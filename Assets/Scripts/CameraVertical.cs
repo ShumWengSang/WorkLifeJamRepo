@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 
 using RoboRyanTron.QuickButtons;
@@ -12,8 +13,7 @@ public class CameraVertical : MonoBehaviour
     public CameraHorizontal topTileMovement;
     public CameraHorizontal bottomTileMovement;
 
-    public Transform background;
-    public Transform mask;
+    public Image background;
 
     [Min(0f)]
     public float toRoadDuration = 0.2f;
@@ -65,6 +65,8 @@ public class CameraVertical : MonoBehaviour
         seq.Append(this.transform.DOMoveY(bottomTileMovement.GetCurrTile().position.y, toTileDuration));
 
 
+        background.DOColor(Color.clear, toRoadDuration+ horiDuration);
+
     }
 
     public void MoveToTop()
@@ -78,15 +80,7 @@ public class CameraVertical : MonoBehaviour
         seq.Append(this.transform.DOMoveX(topTileMovement.GetCurrTile().position.x + 20, horiDuration));
         seq.Append(this.transform.DOMoveY(topTileMovement.GetCurrTile().position.y, toTileDuration));
 
-        Sequence seq_mask = DOTween.Sequence();
-        seq_mask.Append(mask.DOMoveY(gameObject.transform.position.y-(442f / 2f), toRoadDuration));
-        seq_mask.AppendInterval(horiDuration);
-        seq_mask.Append(mask.DOMoveY(gameObject.transform.position.y, toTileDuration));
-
-        Sequence seq_fill = DOTween.Sequence();
-        seq_fill.Append(background.DOMoveY(gameObject.transform.position.y, toRoadDuration));
-        seq_fill.AppendInterval(horiDuration);
-        seq_fill.Append(background.DOMoveY(gameObject.transform.position.y, toTileDuration));
+        background.DOColor(Color.white, toRoadDuration + horiDuration );
     }
 
     void SwapTiles()
