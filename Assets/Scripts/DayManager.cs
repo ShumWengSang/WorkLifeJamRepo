@@ -54,6 +54,7 @@ public class DayManager : MonoBehaviour
         DisableAllTiles();
         EnableCurrentDayTiles();
         RedrawTiles();
+
         SetTimeResource();
 
         ResourceEvents.CanTrigger = true;
@@ -61,9 +62,15 @@ public class DayManager : MonoBehaviour
 
     private void EnableCurrentDayTiles()
     {
-        foreach (GameObject tile in currentDay.tiles)
+        foreach (GameObject tileObj in currentDay.tiles)
         {
-            tile.SetActive(true);
+            tileObj.SetActive(true);
+
+            Tile tile = tileObj.GetComponent<Tile>();
+            if (tile == null)
+                return;
+
+            tile.StartDay(dayIndex);
         }
     }
 

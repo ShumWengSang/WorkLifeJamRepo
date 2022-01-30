@@ -6,18 +6,25 @@ using UnityEngine.UI;
 /// <summary>
 /// Extension of slider that modifies a resource.
 /// </summary>
-public abstract class ResourceSlider : Slider
+[RequireComponent(typeof(Slider))]
+public abstract class ResourceSlider : MonoBehaviour
 {
     protected abstract IResource value { get; }
+    private Slider slider { get; set; }
 
-    protected override void Start()
+    private void Awake()
     {
-        onValueChanged.AddListener(OnSliderValueChanged);
+        slider = GetComponent<Slider>();
     }
 
-    protected override void OnDestroy()
+    private void Start()
     {
-        onValueChanged.RemoveListener(OnSliderValueChanged);
+        slider.onValueChanged.AddListener(OnSliderValueChanged);
+    }
+
+    private void OnDestroy()
+    {
+        slider.onValueChanged.RemoveListener(OnSliderValueChanged);
     }
 
     protected virtual void OnSliderValueChanged(float value)
