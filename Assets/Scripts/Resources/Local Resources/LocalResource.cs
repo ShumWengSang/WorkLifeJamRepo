@@ -80,4 +80,9 @@ public class LocalResource : MonoBehaviour, IResource
     {
         ((IResource)resource).SetValue(value);
     }
+
+    public void SetGrowthRate(float value)
+    {
+        ((IResource)resource).SetGrowthRate(value);
+    }
 }

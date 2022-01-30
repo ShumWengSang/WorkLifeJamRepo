@@ -64,6 +64,11 @@ public class Resource : IResource
         AddValue(growthRate * Time.deltaTime);
     }
 
+    public void SetGrowthRate(float value)
+    {
+        growthRate = value;
+    }
+
     /// <summary>
     /// Add a flat amount to the current value.
     /// </summary>

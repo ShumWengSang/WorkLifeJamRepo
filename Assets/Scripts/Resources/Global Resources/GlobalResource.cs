@@ -89,4 +89,9 @@ public class GlobalResource : ScriptableObject, IResource
     {
         ((IResource)resource).SetValue(value);
     }
+
+    public void SetGrowthRate(float value)
+    {
+        ((IResource)resource).SetGrowthRate(value);
+    }
 }
