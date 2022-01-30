@@ -15,6 +15,7 @@ public class Tile : MonoBehaviour
     private float demandStrength = 1f;
 
     [Header("Event Callbacks")]
+    public UnityEvent<IntEventArgs> OnDayStarted = new UnityEvent<IntEventArgs>();
     public UnityEvent OnUpgrade = new UnityEvent();
     public UnityEvent OnDemandAttention = new UnityEvent();
     public UnityEvent<FloatEventArgs> OnDemandStrengthChanged = new UnityEvent<FloatEventArgs>();
@@ -67,5 +68,10 @@ public class Tile : MonoBehaviour
     public void ReduceDemandStrength(float value)
     {
         AddDemandStrength(-value);
+    }
+
+    public void StartDay(int day)
+    {
+        OnDayStarted.Invoke(day);
     }
 }
