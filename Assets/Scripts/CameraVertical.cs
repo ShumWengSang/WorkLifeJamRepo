@@ -7,20 +7,18 @@ using RoboRyanTron.QuickButtons;
 
 public class CameraVertical : MonoBehaviour
 {
-    public Transform topTile;
-    public Transform bottomTile;
     public Transform middleRoad;
 
     public CameraHorizontal topTileMovement;
     public CameraHorizontal bottomTileMovement;
 
-    [Range(0.0f, 1)]
+    [Min(0f)]
     public float toRoadDuration = 0.2f;
 
-    [Range(0.0f, 1)]
+    [Min(0f)]
     public float toTileDuration = 0.2f;
 
-    [Range(0.0f, 1)]
+    [Min(0f)]
     public float horiDuration = 0.2f;
 
     public QuickButton setCameraPosY = new QuickButton(input =>
@@ -37,27 +35,43 @@ public class CameraVertical : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.W))
         {
-            if (topTileMovement.isActiveAndEnabled)
+            if (topTileMovement.GetActiveTiles() <= 0)
                 return;
 
-            SwapTiles();
-            Sequence seq = DOTween.Sequence();
-            seq.Append(this.transform.DOMoveY(middleRoad.position.y, toRoadDuration));
-            seq.Append(this.transform.DOMoveX(topTileMovement.GetCurrTile().position.x+20, horiDuration));
-            seq.Append(this.transform.DOMoveY(topTileMovement.GetCurrTile().position.y, toTileDuration));
+            MoveToTop();
         }
 
         if (Input.GetKeyDown(KeyCode.S))
         {
-            if (bottomTileMovement.isActiveAndEnabled)
+            if (bottomTileMovement.GetActiveTiles() <= 0)
                 return;
 
-            SwapTiles();
-            Sequence seq = DOTween.Sequence();
-            seq.Append(this.transform.DOMoveY(middleRoad.position.y, toRoadDuration));
-            seq.Append(this.transform.DOMoveX(bottomTileMovement.GetCurrTile().position.x + 20, horiDuration));
-            seq.Append(this.transform.DOMoveY(bottomTileMovement.GetCurrTile().position.y, toTileDuration));
+            MoveToBottom();
         }
+    }
+
+    public void MoveToBottom()
+    {
+        if (bottomTileMovement.isActiveAndEnabled)
+            return;
+
+        SwapTiles();
+        Sequence seq = DOTween.Sequence();
+        seq.Append(this.transform.DOMoveY(middleRoad.position.y, toRoadDuration));
+        seq.Append(this.transform.DOMoveX(bottomTileMovement.GetCurrTile().position.x + 20, horiDuration));
+        seq.Append(this.transform.DOMoveY(bottomTileMovement.GetCurrTile().position.y, toTileDuration));
+    }
+
+    public void MoveToTop()
+    {
+        if (topTileMovement.isActiveAndEnabled)
+            return;
+
+        SwapTiles();
+        Sequence seq = DOTween.Sequence();
+        seq.Append(this.transform.DOMoveY(middleRoad.position.y, toRoadDuration));
+        seq.Append(this.transform.DOMoveX(topTileMovement.GetCurrTile().position.x + 20, horiDuration));
+        seq.Append(this.transform.DOMoveY(topTileMovement.GetCurrTile().position.y, toTileDuration));
     }
 
     void SwapTiles()

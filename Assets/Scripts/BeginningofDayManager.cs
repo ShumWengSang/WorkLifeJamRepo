@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BeginningofDayManager : MonoBehaviour
 {
+    public UnityEvent OnDayStarted = new UnityEvent();
+
     public DayManager dayManager;
     public FadeController fadeScreen;
     public GameObject button;
@@ -27,6 +30,8 @@ public class BeginningofDayManager : MonoBehaviour
 
         //just call start next day here
         dayManager.StartNextDay();
+
+        OnDayStarted.Invoke();
     }
 
     public void PromptStart()

@@ -6,11 +6,11 @@ using RoboRyanTron.QuickButtons;
 
 public class CameraHorizontal : MonoBehaviour
 {
-    public Transform[] tiles;
+    public Transform parentTile;
     public int tileIndex = 0;
     public DG.Tweening.Ease easing;
 
-    [Range(0, 1)]
+    [Min(0f)]
     public float duration = 0.25f;
 
     public QuickButton setCameraPosX = new QuickButton(input =>
@@ -36,7 +36,7 @@ public class CameraHorizontal : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.D))
         {
-            if (tileIndex >= tiles.Length - 1)
+            if (tileIndex >= GetActiveTiles() - 1)
                 return;
 
             tileIndex++;
@@ -44,15 +44,25 @@ public class CameraHorizontal : MonoBehaviour
         }
     }
 
+    public void MoveToStartingTile()
+    {
+        tileIndex = 0;
+        this.DoAfterDelay(MoveHorizontalTiles, 0.2f);
+    }
+
+    public int GetActiveTiles()
+    {
+        return parentTile.GetActiveChildren();
+    }
+
     public Transform GetCurrTile()
     {
-        return tiles[tileIndex];
+        return parentTile.GetActiveChild(tileIndex);
     }
 
     private void MoveHorizontalTiles()
     {
-        Debug.Log(tiles[tileIndex].transform.position.x.ToString());
-        this.transform.DOMoveX(tiles[tileIndex].transform.position.x+20, duration).SetEase(easing).OnComplete(() => { Player.CanInput = true; }); ;
+        this.transform.DOMoveX(GetCurrTile().transform.position.x+20, duration).SetEase(easing).OnComplete(() => { Player.CanInput = true; }); ;
         Player.CanInput = false;
     }
 }
