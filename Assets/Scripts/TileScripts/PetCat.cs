@@ -10,7 +10,7 @@ public class PetCat : MonoBehaviour
     public LeverUI lever;
     public Slider slider;
     public CursorEvents cursor;
-
+    public Animator handAnimator;
     public void PetPointsUp()
     {
         var val = (100f / 10f) * Time.deltaTime;
@@ -38,6 +38,7 @@ public class PetCat : MonoBehaviour
     {
         DOTween.To(()=>slider.value,(float something)=>slider.value=something, 0, .1f);
         lever.ResetPercentage();
+        handAnimator.SetTrigger("StopPetting");
     }
 
     public void killTweens()
