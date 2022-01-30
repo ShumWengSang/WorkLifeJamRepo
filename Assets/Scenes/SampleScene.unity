@@ -764,7 +764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dayManager: {fileID: 1864977855}
-  endofDayManager: {fileID: 802688097}
+  endofDayManager: {fileID: 0}
   notificationPrefab: {fileID: 0}
 --- !u!1 &253280615
 GameObject:

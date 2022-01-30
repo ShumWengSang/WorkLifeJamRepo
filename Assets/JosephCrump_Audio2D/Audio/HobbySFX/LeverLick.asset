@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67849ae526526d24a936d5a80c806257, type: 3}
-  m_Name: ButtonClick
+  m_Name: LeverLick
   m_EditorClassIdentifier: 
   BaseVolume: 1
   BasePitch: 1
@@ -21,4 +21,5 @@ MonoBehaviour:
   Loop: 0
   Mixer: {fileID: 4629807470469930581, guid: 7cf488c0483a4394f82479b58009f289, type: 2}
   Variations:
-  - Clip: {fileID: 8300000, guid: 3009a942fd977c748b5411671961765a, type: 3}
+  - Clip: {fileID: 8300000, guid: fd92817f24aaf4a458555c8490bf67a7, type: 3}
+  - Clip: {fileID: 8300000, guid: 70558a77ec6c96f4f8bee92f31904f69, type: 3}

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67849ae526526d24a936d5a80c806257, type: 3}
-  m_Name: ButtonClick
+  m_Name: Chimes_Buttons
   m_EditorClassIdentifier: 
   BaseVolume: 1
   BasePitch: 1
@@ -21,4 +21,6 @@ MonoBehaviour:
   Loop: 0
   Mixer: {fileID: 4629807470469930581, guid: 7cf488c0483a4394f82479b58009f289, type: 2}
   Variations:
-  - Clip: {fileID: 8300000, guid: 3009a942fd977c748b5411671961765a, type: 3}
+  - Clip: {fileID: 8300000, guid: c32a67a7d0a6eda4db7248eeb1e87c51, type: 3}
+  - Clip: {fileID: 8300000, guid: 40af40454e904fb4597be115c7e9df17, type: 3}
+  - Clip: {fileID: 8300000, guid: 4cfa8f5d4e5489247aaf2ca3378ab536, type: 3}
