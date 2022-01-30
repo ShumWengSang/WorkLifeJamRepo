@@ -25,12 +25,17 @@ public class CameraController : MonoBehaviour
         var dayManager = GameObject.FindObjectOfType<DayManager>();
         // dayManager.DayStarted += DayManagerOnDayStarted;
         // Evaluate whether to turn on/off arrows
-        ToggleHorizontalArrows();
-        ToggleVerticalArrows();
+        OnStart();
 
         verticalCamMovement.Moved += Moved;
         topHorizontal.Moved += Moved;
         bottomHorizontal.Moved += Moved;
+    }
+
+    public void OnStart()
+    {
+        ToggleHorizontalArrows();
+        ToggleVerticalArrows();
     }
 
     private void DayManagerOnDayStarted(object sender, IntEventArgs e)
@@ -126,8 +131,6 @@ public class CameraController : MonoBehaviour
 
     public void ToggleUpDownMovement()
     {
-        if (!Player.CanInput)
-            return;
         verticalCamMovement.ToggleMoveTilesVertical();
         ToggleVerticalArrows();
     }
