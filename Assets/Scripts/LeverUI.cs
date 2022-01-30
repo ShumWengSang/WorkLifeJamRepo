@@ -37,13 +37,11 @@ public class LeverUI : MonoBehaviour
     public void OnPointerDown()
     {
         lineRenderer.enabled = true;
-        Debug.Log("Enable Line Renderer");
     }
 
     public void OnPointerUp()
     {
         lineRenderer.enabled = false;
-        Debug.Log("Disable Line Renderer");
     }
 
     public void OnPointerDrag()
