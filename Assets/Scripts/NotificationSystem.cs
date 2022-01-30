@@ -13,22 +13,39 @@ public class NotificationSystem : MonoBehaviour
     private DayManager dayManager;
     [SerializeField]
     private EndofDayManager endofDayManager;
+    [SerializeField]
+    private CameraController cameraController;
 
     [SerializeField]
     private GameObject notificationPrefab;
+
+    [SerializeField]
+    private Transform leftNotificationPanel;
+    [SerializeField]
+    private Transform rightNotificationPanel;
+    [SerializeField]
+    private Transform bottomNotificationPanel;
+    [SerializeField]
+    private Transform topNotificationPanel;
 
     private List<GameObject> tiles;
 
     private Dictionary<Tile, GameObject> notifications = new Dictionary<Tile, GameObject>();
 
+    private Vector2 cameraPosition { get; set; }
+
     private void Start()
     {
+        cameraPosition = cameraController.transform.position;
+
         RegisterDayChangeEvents();
+        RegisterCameraMoveEvent();
     }
 
     private void OnDestroy()
     {
         DeregisterDayChangeEvents();
+        DeregisterCameraMoveEvent();
     }
 
     private void RegisterDayChangeEvents()
@@ -43,14 +60,92 @@ public class NotificationSystem : MonoBehaviour
         endofDayManager.DayEnded -= OnDayEnded;
     }
 
+    private void RegisterCameraMoveEvent()
+    {
+        cameraController.Moved += OnCameraMoved;
+    }
+
+    private void DeregisterCameraMoveEvent()
+    {
+        cameraController.Moved -= OnCameraMoved;
+    }
+
     private void RegisterTileDemandedAttentionEvent(Tile tile)
     {
         tile.DemandedAttention += OnTileDemandedAttention;
+        tile.StoppedDemangingAttention += OnTileStoppedDemandingAttention;
     }
 
     private void DeregisterTileDemandedAttentionEvent(Tile tile)
     {
         tile.DemandedAttention -= OnTileDemandedAttention;
+    }
+
+    private void CreateNotification(Tile tile)
+    {
+        if (notifications.ContainsKey(tile))
+            return;
+
+        GameObject notificationObj = Instantiate(notificationPrefab, rightNotificationPanel);
+        UpdateNotificationPosition(tile, notificationObj.transform);
+        notifications.Add(tile, notificationObj);
+    }
+
+    private void RemoveNotification(Tile tile)
+    {
+        if (!notifications.ContainsKey(tile))
+            return;
+
+        notifications.TryGetValue(tile, out GameObject notification);
+        Destroy(notification);
+        notifications.Remove(tile);
+    }
+
+    private void UpdateNotificationPositions()
+    {
+        foreach (Tile tile in notifications.Keys)
+        {
+            notifications.TryGetValue(tile, out GameObject notificationObj);
+            Transform notification = notificationObj.transform;
+            UpdateNotificationPosition(tile, notification);
+        }
+    }
+
+    private void UpdateNotificationPosition(Tile tile, Transform notification)
+    {
+        Vector2 tileDirection = (Vector2)tile.transform.position - cameraPosition;
+
+        if (tileDirection.magnitude < 5f)
+        {
+            notification.gameObject.SetActive(false);
+            return;
+        }
+
+        notification.gameObject.SetActive(true);
+
+        if (tileDirection.y > 5f)
+        {
+            notification.transform.parent = topNotificationPanel;
+            return;
+        }
+
+        if (tileDirection.y < -5f)
+        {
+            notification.transform.parent = bottomNotificationPanel;
+            return;
+        }
+
+        if (tileDirection.x > 5f)
+        {
+            notification.transform.parent = rightNotificationPanel;
+            return;
+        }
+
+        if (tileDirection.x < -5f)
+        {
+            notification.transform.parent = leftNotificationPanel;
+            return;
+        }
     }
 
     protected virtual void OnDayStarted(object sender, EventArgs e)
@@ -79,27 +174,17 @@ public class NotificationSystem : MonoBehaviour
         CreateNotification(tile);
     }
 
-    private void CreateNotification(Tile tile)
+    protected virtual void OnTileStoppedDemandingAttention(object sender, EventArgs e)
     {
-        if (notifications.ContainsKey(tile))
-            return;
+        Tile tile = sender as Tile;
 
-
+        RemoveNotification(tile);
     }
 
-    private void RemoveNotification(Tile tile)
+    protected virtual void OnCameraMoved(object sender, EventArgs e)
     {
-        if (!notifications.ContainsKey(tile))
-            return;
+        cameraPosition = cameraController.transform.position;
 
-        tile.StopDemandingAttention();
-
-        // Clear dictionary and destroy notifications
-        while (notifications.Count > 0)
-        {
-            notifications.TryGetValue(tile, out GameObject notification);
-            Destroy(notification);
-            notifications.Remove(tile);
-        }
+        UpdateNotificationPositions();
     }
 }

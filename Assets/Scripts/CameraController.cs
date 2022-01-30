@@ -7,6 +7,8 @@ using DG.Tweening;
 
 public class CameraController : MonoBehaviour
 {
+    public event EventHandler Moved;
+
     public CameraVertical verticalCamMovement;
     public CameraHorizontal topHorizontal;
     public CameraHorizontal bottomHorizontal;
@@ -25,6 +27,10 @@ public class CameraController : MonoBehaviour
         // Evaluate whether to turn on/off arrows
         ToggleHorizontalArrows();
         ToggleVerticalArrows();
+
+        verticalCamMovement.Moved += Moved;
+        topHorizontal.Moved += Moved;
+        bottomHorizontal.Moved += Moved;
     }
 
     private void DayManagerOnDayStarted(object sender, IntEventArgs e)
