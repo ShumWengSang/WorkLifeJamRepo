@@ -12,13 +12,12 @@ public class ValueAccrueEvent
     [Tooltip("The event will be invoked when the target value is accrued.")]
     public float accrueTarget = 100f;
 
+    [Tooltip("If true, the accrue target will reset at the start of each day.")]
+    public bool resetOnDayStart = true;
+
     [SerializeField]
     [Tooltip("If true, the accrue target will reset after reaching its goal and accrue again.")]
     private bool resetAfterInvoke = false;
-
-    [SerializeField]
-    [Tooltip("If true, the accrue target will reset at the start of each day.")]
-    private bool resetOnDayStart = true;
 
     private float accruedAmount { get; set; } = 0f;
     private bool invoked { get; set; } = false;

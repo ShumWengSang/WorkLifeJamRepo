@@ -12,8 +12,20 @@ public class GlobalResource : ScriptableObject, IResource
     [SerializeField]
     private Resource resourceStartingValues;
 
+    private Resource _resource;
     [SerializeField]
-    private Resource resource { get; set; }
+    private Resource resource
+    {
+        get 
+        {
+            if (_resource == null)
+            {
+                _resource = resourceStartingValues.Clone();
+            }
+
+            return _resource;
+        }
+    }
 
     public event EventHandler<ValueChangedEventArgs> ValueChanged
     {
@@ -30,7 +42,7 @@ public class GlobalResource : ScriptableObject, IResource
 
     public void Initialize()
     {
-        resource = resourceStartingValues.Clone();
+        _resource = resourceStartingValues.Clone();
     }
 
     public float GetCurrent()
@@ -88,5 +100,10 @@ public class GlobalResource : ScriptableObject, IResource
     public void SetValue(float value)
     {
         ((IResource)resource).SetValue(value);
+    }
+
+    public void SetGrowthRate(float value)
+    {
+        ((IResource)resource).SetGrowthRate(value);
     }
 }

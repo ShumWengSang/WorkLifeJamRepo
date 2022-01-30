@@ -82,7 +82,7 @@ public class LeverUI : MonoBehaviour
             case Slider.Direction.LeftToRight:
             case Slider.Direction.RightToLeft:
                 {
-                    mouseWidth = point.y + handleArea.TransformPoint(rect.min.x, rect.min.y, 0).y;
+                    mouseWidth = point.x - handleArea.TransformPoint(rect.min.x, rect.min.y, 0).x;
                     if (slider.direction == Slider.Direction.RightToLeft) mouseWidth *= -1;
                     break;
                 }
@@ -90,6 +90,8 @@ public class LeverUI : MonoBehaviour
 
         // Find percentange of width
         float goalPercentage = mouseWidth / handleArea.rect.width;
+
+        
         prevPercentage += (goalPercentage - prevPercentage) * Time.deltaTime * (1 - resistance);
         
         // Set value
