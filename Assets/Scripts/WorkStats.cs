@@ -12,7 +12,7 @@ public class WorkStats : MonoBehaviour
         //half
         if(total > 4)
         {
-            var half_plus_one = (total / 2) + 1;
+            var half_plus_one = (total%2==0)?(total / 2) :(total / 2) + 1;
             var half = (total / 2);
 
             foreach (var star in topRowStars)
