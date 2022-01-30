@@ -128,7 +128,8 @@ public class WorkDrinks : MonoBehaviour
     {
         if(firstBar.GetCurrent() < 100f)
         {
-            firstBar.Add((100f / 13f) * Time.deltaTime);
+            var val = (100f / 13f) * Time.deltaTime;
+            firstBar.Add(val);
             if(firstBar.GetCurrent() >= 100)
             {
                 firstStar.FillUpCelebrate();
@@ -138,7 +139,7 @@ public class WorkDrinks : MonoBehaviour
         else if (secondBar.GetCurrent() < 100f)
         {
             secondBar.Add((100f / 13f) * Time.deltaTime);
-            if (firstBar.GetCurrent() >= 100)
+            if (secondBar.GetCurrent() >= 100)
             {
                 secondStar.FillUpCelebrate();
                 //update stats
@@ -147,7 +148,7 @@ public class WorkDrinks : MonoBehaviour
         else if (thirdBar.GetCurrent() < 100f)
         {
             thirdBar.Add((100f / 13f) * Time.deltaTime);
-            if (firstBar.GetCurrent() >= 100)
+            if (thirdBar.GetCurrent() >= 100)
             {
                 thirdStar.FillUpCelebrate();
                 //update stats
