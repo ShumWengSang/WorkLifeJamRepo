@@ -327,7 +327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resource:
     currentValue: 0
-    maxValue: 0
+    maxValue: 100
     growthRate: 0
 --- !u!1 &924790101152033376
 GameObject:
@@ -472,19 +472,7 @@ MonoBehaviour:
       cost: 0
     unityEvent:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 6724432884034164969}
-          m_TargetAssemblyTypeName: WorkDrinks, Assembly-CSharp
-          m_MethodName: ResourceUp
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
   cursorUp:
     localResourceCost:
       resource: {fileID: 0}
@@ -524,7 +512,19 @@ MonoBehaviour:
       cost: 0
     unityEvent:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 6724432884034164969}
+          m_TargetAssemblyTypeName: WorkDrinks, Assembly-CSharp
+          m_MethodName: ResourceUp
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &967731589049154179
 GameObject:
   m_ObjectHideFlags: 0
