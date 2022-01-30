@@ -9,6 +9,8 @@ using UnityEngine.UI;
 /// </summary>
 public class DayManager : MonoBehaviour
 {
+    public event EventHandler<IntEventArgs> DayStarted;
+
     public GlobalResource TimeResource;
     public List<DayInfo> days = new List<DayInfo>();
 
@@ -23,6 +25,8 @@ public class DayManager : MonoBehaviour
         dayIndex = index;
 
         InitializeDay();
+
+        DayStarted?.Invoke(this, dayIndex);
     }
 
     public void StartNextDay()
