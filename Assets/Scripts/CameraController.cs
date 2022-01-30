@@ -50,11 +50,17 @@ public class CameraController : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.W))
         {
-            verticalCamMovement.MoveToTop();
+            if (!verticalCamMovement.CanGoTop())
+                return;
+
+            ToggleUpDownMovement();
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
-            verticalCamMovement.MoveToBottom();
+            if (!verticalCamMovement.CanGoBottom())
+                return;
+
+            ToggleUpDownMovement();
         }
         else if(Input.GetKeyDown(KeyCode.A))
         {
@@ -74,34 +80,16 @@ public class CameraController : MonoBehaviour
 
     private void ToggleVerticalArrows()
     {
-        if (verticalCamMovement.CanGoBottom())
-        {
-            arrowUp.gameObject.SetActive(false);
-            arrowDown.gameObject.SetActive(true);
-        }
-        else if (verticalCamMovement.CanGoTop())
-        {
-            arrowUp.gameObject.SetActive(true);
-            arrowDown.gameObject.SetActive(false);
-        }
+        arrowUp.gameObject.SetActive(verticalCamMovement.CanGoTop());
+        arrowDown.gameObject.SetActive(verticalCamMovement.CanGoBottom());
     }
 
     private void CameraHorizontalUIArrowsDetermineInteractable(CameraHorizontal cameraHorizontal)
     {
         if (cameraHorizontal.isActiveAndEnabled)
         {
-            arrowLeft.gameObject.SetActive(true);
-            arrowRight.gameObject.SetActive(true);
-            if (!cameraHorizontal.CanMoveLeft())
-            {
-                // Turn arrow left off
-                arrowLeft.gameObject.SetActive(false);
-            }
-            else if (!cameraHorizontal.CanMoveRight())
-            {
-                // Turn right arrow off
-                arrowRight.gameObject.SetActive(false);
-            }
+            arrowLeft.gameObject.SetActive(cameraHorizontal.CanMoveLeft());
+            arrowRight.gameObject.SetActive(cameraHorizontal.CanMoveRight());
         }
     }
 
