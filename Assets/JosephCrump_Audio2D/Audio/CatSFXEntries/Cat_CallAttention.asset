@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67849ae526526d24a936d5a80c806257, type: 3}
-  m_Name: SunShine
+  m_Name: Cat_CallAttention
   m_EditorClassIdentifier: 
   BaseVolume: 1
   BasePitch: 1
@@ -21,4 +21,6 @@ MonoBehaviour:
   Loop: 0
   Mixer: {fileID: 4629807470469930581, guid: 7cf488c0483a4394f82479b58009f289, type: 2}
   Variations:
-  - Clip: {fileID: 8300000, guid: 98d2d7c6b7c713e4abc6c8ffe188d0b4, type: 3}
+  - Clip: {fileID: 8300000, guid: d8166c1c80f4575418174606a248f303, type: 3}
+  - Clip: {fileID: 8300000, guid: 953ad15f76ab8e74a95de1ffcce92110, type: 3}
+  - Clip: {fileID: 8300000, guid: 1bf523b68a705714d897d1a57f2ed05f, type: 3}
