@@ -236,7 +236,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.239
+  m_Volume: 0.165
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -333,6 +333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioEntry: {fileID: 11400000, guid: f08af549623d53744a08fa5f9ef80c7d, type: 2}
+  audioSource: {fileID: 4493479224716920860}
 --- !u!1 &1094588254245336341
 GameObject:
   m_ObjectHideFlags: 0
@@ -10502,6 +10503,7 @@ GameObject:
   - component: {fileID: 3236488994317671607}
   - component: {fileID: 6701611831075366399}
   - component: {fileID: 6581428355880284225}
+  - component: {fileID: 1263101193120823278}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -10610,7 +10612,45 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6701611831075366399}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1263101193120823278}
+        m_TargetAssemblyTypeName: PlayRandomSound, Assembly-CSharp
+        m_MethodName: PlayARandomSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5356944723398136383}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SunlightOn
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1263101193120823278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8077606936572695518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32bf8f50a7fa655449f65f94f01c1f1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioEntry: {fileID: 11400000, guid: c3645943be31c3b4490990d27889e3ea, type: 2}
+  audioSource: {fileID: 4493479224716920860}
 --- !u!1 &8584348774794255541
 GameObject:
   m_ObjectHideFlags: 0
@@ -10946,7 +10986,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3302203059727076138}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2828080283203821499}
+        m_TargetAssemblyTypeName: LocalResource, Assembly-CSharp
+        m_MethodName: AddValue
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5630353201914395132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11032,19 +11084,7 @@ MonoBehaviour:
       cost: 0.016
     unityEvent:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2828080283203821499}
-          m_TargetAssemblyTypeName: LocalResource, Assembly-CSharp
-          m_MethodName: AddByDeltaTime
-          m_Mode: 4
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 20
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
 --- !u!1 &9006473931023550515
 GameObject:
   m_ObjectHideFlags: 0

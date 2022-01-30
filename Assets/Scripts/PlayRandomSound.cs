@@ -6,10 +6,10 @@ using Random = System.Random;
 public class PlayRandomSound : MonoBehaviour
 {
     public AudioEntry audioEntry;
-
+    public AudioSource audioSource;
     public void PlayARandomSound()
     {
-        GetComponent<AudioSource>().PlayOneShot(audioEntry.Random().Clip);
+        audioSource.PlayOneShot(audioEntry.Random().Clip);
     }
 
 }
