@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 
 public class Tile : MonoBehaviour
@@ -11,6 +12,7 @@ public class Tile : MonoBehaviour
     public event EventHandler<ValueChangedEventArgs> DemandStrengthChanged;
 
     [Header("Properties")]
+    public Image notificationIcon;
     [SerializeField]
     private float demandStrength = 1f;
 
