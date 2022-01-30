@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class CursorEvents : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
 {
@@ -12,10 +13,24 @@ public class CursorEvents : MonoBehaviour, IPointerDownHandler, IPointerEnterHan
     public CostUnityEvent cursorExit;
     public CostUnityEvent cursorHold;
 
+    private Button button;
+    private bool hasButton = false;
+
+    private void Start()
+    {
+        button = gameObject.GetComponent<Button>();
+        if(button != null)
+        {
+            hasButton = true;
+        }
+    }
+
     private Coroutine cursorDownCoroutine { get; set; }
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (hasButton && button.interactable == false) return;
+
         cursorDown.Invoke();
 
         if (cursorDownCoroutine != null)
@@ -26,16 +41,22 @@ public class CursorEvents : MonoBehaviour, IPointerDownHandler, IPointerEnterHan
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if (hasButton && button.interactable == false) return;
+
         cursorEnter.Invoke();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        if (hasButton && button.interactable == false) return;
+
         cursorExit.Invoke();
     }
 
     private IEnumerator CursorDownLoop()
     {
+        if (hasButton && button.interactable == false) yield break;
+
         while (this.enabled)
         {
             if (Input.GetMouseButtonUp(0))

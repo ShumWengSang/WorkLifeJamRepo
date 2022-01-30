@@ -12,6 +12,9 @@ public class CameraVertical : MonoBehaviour
     public CameraHorizontal topTileMovement;
     public CameraHorizontal bottomTileMovement;
 
+    public Transform background;
+    public Transform mask;
+
     [Min(0f)]
     public float toRoadDuration = 0.2f;
 
@@ -60,6 +63,8 @@ public class CameraVertical : MonoBehaviour
         seq.Append(this.transform.DOMoveY(middleRoad.position.y, toRoadDuration));
         seq.Append(this.transform.DOMoveX(bottomTileMovement.GetCurrTile().position.x + 20, horiDuration));
         seq.Append(this.transform.DOMoveY(bottomTileMovement.GetCurrTile().position.y, toTileDuration));
+
+
     }
 
     public void MoveToTop()
@@ -72,6 +77,16 @@ public class CameraVertical : MonoBehaviour
         seq.Append(this.transform.DOMoveY(middleRoad.position.y, toRoadDuration));
         seq.Append(this.transform.DOMoveX(topTileMovement.GetCurrTile().position.x + 20, horiDuration));
         seq.Append(this.transform.DOMoveY(topTileMovement.GetCurrTile().position.y, toTileDuration));
+
+        Sequence seq_mask = DOTween.Sequence();
+        seq_mask.Append(mask.DOMoveY(gameObject.transform.position.y-(442f / 2f), toRoadDuration));
+        seq_mask.AppendInterval(horiDuration);
+        seq_mask.Append(mask.DOMoveY(gameObject.transform.position.y, toTileDuration));
+
+        Sequence seq_fill = DOTween.Sequence();
+        seq_fill.Append(background.DOMoveY(gameObject.transform.position.y, toRoadDuration));
+        seq_fill.AppendInterval(horiDuration);
+        seq_fill.Append(background.DOMoveY(gameObject.transform.position.y, toTileDuration));
     }
 
     void SwapTiles()
