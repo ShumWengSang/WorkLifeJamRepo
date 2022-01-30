@@ -7,6 +7,7 @@ public class StatsManager : MonoBehaviour
     [SerializeField]
     private WorkStats workStats;
 
+    [SerializeField]
     private GlobalResource stars;
 
     public void DisplayStats()
