@@ -13,6 +13,7 @@ using Vector3 = UnityEngine.Vector3;
 public class LeverUI : MonoBehaviour
 {
 
+
     private Slider slider;
     private LineRenderer lineRenderer;
 
