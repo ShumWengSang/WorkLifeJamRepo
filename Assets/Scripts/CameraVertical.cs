@@ -107,12 +107,12 @@ public class CameraVertical : MonoBehaviour
 
     public bool CanGoTop()
     {
-        return bottomTileMovement.isActiveAndEnabled;
+        return !topTileMovement.isActiveAndEnabled;
     }
 
     public bool CanGoBottom()
     {
-        return topTileMovement.isActiveAndEnabled;
+        return !bottomTileMovement.isActiveAndEnabled;
     }
 
     public void ResetInternal()
