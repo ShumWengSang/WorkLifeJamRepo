@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
+using RoboRyanTron.QuickButtons;
+
 public class CameraVertical : MonoBehaviour
 {
     public Transform topTile;
@@ -20,6 +22,13 @@ public class CameraVertical : MonoBehaviour
 
     [Range(0.0f, 1)]
     public float horiDuration = 0.2f;
+
+    public QuickButton setCameraPosY = new QuickButton(input =>
+    {
+        CameraVertical demo = input as CameraVertical;
+        demo.transform.position = new Vector3(demo.transform.position.x + 20, demo.topTileMovement.GetCurrTile().transform.position.y, demo.transform.position.z);
+    });
+
     // Update is called once per frame
     void Update()
     {
@@ -34,7 +43,7 @@ public class CameraVertical : MonoBehaviour
             SwapTiles();
             Sequence seq = DOTween.Sequence();
             seq.Append(this.transform.DOMoveY(middleRoad.position.y, toRoadDuration));
-            seq.Append(this.transform.DOMoveX(topTileMovement.GetCurrTile().position.x, horiDuration));
+            seq.Append(this.transform.DOMoveX(topTileMovement.GetCurrTile().position.x+20, horiDuration));
             seq.Append(this.transform.DOMoveY(topTileMovement.GetCurrTile().position.y, toTileDuration));
         }
 
@@ -46,7 +55,7 @@ public class CameraVertical : MonoBehaviour
             SwapTiles();
             Sequence seq = DOTween.Sequence();
             seq.Append(this.transform.DOMoveY(middleRoad.position.y, toRoadDuration));
-            seq.Append(this.transform.DOMoveX(bottomTileMovement.GetCurrTile().position.x, horiDuration));
+            seq.Append(this.transform.DOMoveX(bottomTileMovement.GetCurrTile().position.x + 20, horiDuration));
             seq.Append(this.transform.DOMoveY(bottomTileMovement.GetCurrTile().position.y, toTileDuration));
         }
     }
