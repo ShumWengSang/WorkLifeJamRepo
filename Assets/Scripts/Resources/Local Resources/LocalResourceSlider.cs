@@ -8,6 +8,6 @@ using UnityEngine;
 public class LocalResourceSlider : ResourceSlider
 {
     [SerializeField]
-    private LocalResource resource;
+    public LocalResource resource;
     protected override IResource value => resource;
 }
