@@ -632,6 +632,29 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+  - thresholdValue: 1
+    unityEvent:
+      localResourceCost:
+        resource: {fileID: 0}
+        cost: 0
+      globalResourceCost:
+        resource: {fileID: 0}
+        cost: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 7427241547752129023}
+            m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+            m_MethodName: set_interactable
+            m_Mode: 6
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 1
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
   accrueEvents:
   - accrueTarget: 50
     resetOnDayStart: 1
@@ -10662,6 +10685,18 @@ MonoBehaviour:
             m_StringArgument: SunlightOn
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 4493479224716920860}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: set_loop
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
         - m_Target: {fileID: 1263101193120823278}
           m_TargetAssemblyTypeName: PlayRandomSound, Assembly-CSharp
           m_MethodName: PlayARandomSound
@@ -10672,7 +10707,7 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 0
+            m_BoolArgument: 1
           m_CallState: 2
   cursorUp:
     localResourceCost:
@@ -10700,6 +10735,18 @@ MonoBehaviour:
           m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
           m_MethodName: Stop
           m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4493479224716920860}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: set_loop
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10842,6 +10889,18 @@ MonoBehaviour:
             m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
             m_MethodName: Play
             m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 8739438993395587411}
+            m_TargetAssemblyTypeName: LeverUI, Assembly-CSharp
+            m_MethodName: EnableInternally
+            m_Mode: 6
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11495,6 +11554,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2780805067983083449, guid: 19a0d00b0d285c94ead72f07eaf161c5, type: 3}
   m_PrefabInstance: {fileID: 6908484513093275374}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8739438993395587411 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2780805067983083453, guid: 19a0d00b0d285c94ead72f07eaf161c5, type: 3}
+  m_PrefabInstance: {fileID: 6908484513093275374}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8739438993395587415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c77b304a76da3c948b5d30d01090ba1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8143512094235908742
 PrefabInstance:
   m_ObjectHideFlags: 0

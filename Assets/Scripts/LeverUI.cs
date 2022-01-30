@@ -12,8 +12,17 @@ using Vector3 = UnityEngine.Vector3;
 [RequireComponent(typeof(Slider)), RequireComponent(typeof(LineRenderer))]
 public class LeverUI : MonoBehaviour
 {
+
     public bool interactable { get; set; } = true;
 
+
+    private bool enable_internal = true;
+
+    public void EnableInternally(bool active)
+    {
+        enable_internal = active;
+    }
+    
     private Slider slider;
     private LineRenderer lineRenderer;
 
@@ -38,11 +47,15 @@ public class LeverUI : MonoBehaviour
     {
         if (interactable == false) return;
 
+        if (!enable_internal)
+            return;
         lineRenderer.enabled = true;
     }
 
     public void OnPointerUp()
     {
+        if (!enable_internal)
+            return;
         lineRenderer.enabled = false;
     }
 
@@ -50,6 +63,9 @@ public class LeverUI : MonoBehaviour
     {
         if (interactable == false) return;
 
+        if (!enable_internal)
+            return;
+            
         Vector3 mousePositionWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         // Line from handle to mouse position
         lineRenderer.positionCount = 2;
@@ -105,6 +121,10 @@ public class LeverUI : MonoBehaviour
 
     public void Update()
     {
+        if (!enable_internal)
+        {
+            lineRenderer.enabled = false;
+        }
         if (Input.GetKeyDown(KeyCode.P))
         {
             Debug.Break();
