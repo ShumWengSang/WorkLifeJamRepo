@@ -89,7 +89,8 @@ public class GlobalResource : ScriptableObject, IResource
 
     public void Update()
     {
-        resource.Grow();
+        if(!Player.IsPaused)
+            resource.Grow();
     }
 
     public void AddValue(float value)

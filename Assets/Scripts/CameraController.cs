@@ -39,6 +39,8 @@ public class CameraController : MonoBehaviour
     {
         if (!Player.CanInput)
             return;
+        if (Player.IsPaused)
+            return;
 
         if(Input.GetKeyDown(KeyCode.W))
         {

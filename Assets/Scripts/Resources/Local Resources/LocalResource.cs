@@ -68,7 +68,8 @@ public class LocalResource : MonoBehaviour, IResource
 
     private void Update()
     {
-        resource.Grow();
+        if(!Player.IsPaused)
+            resource.Grow();
     }
 
     public void AddValue(float value)

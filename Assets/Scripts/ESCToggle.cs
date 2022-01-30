@@ -1,11 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
+[System.Serializable]
+public class PauseEvent : UnityEvent<bool> // True for IsPaused
+{
+}
 
 public class ESCToggle : MonoBehaviour
 {
     private Transform[] childrens;
-
+    public  PauseEvent OnTogglePause;
+    
     T[] GetCompNoRoot<T>(GameObject obj, bool isActive) where T : Component
     {
         // Possibly refactor to remove the new List as a GC allocator
@@ -29,6 +36,8 @@ public class ESCToggle : MonoBehaviour
 
     public void ToggleESC()
     {
+        Player.IsPaused = !Player.IsPaused;
+        OnTogglePause?.Invoke(Player.IsPaused);
         bool targetEnableValue = !childrens[0].gameObject.activeInHierarchy;
         foreach (var child in childrens)
         {

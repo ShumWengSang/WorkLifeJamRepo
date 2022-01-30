@@ -8,4 +8,5 @@ using UnityEngine;
 public static class Player
 {
     public static bool CanInput { get; set; } = true;
+    public static bool IsPaused { get; set; } = false;
 }
