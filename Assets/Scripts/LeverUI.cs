@@ -12,7 +12,7 @@ using Vector3 = UnityEngine.Vector3;
 [RequireComponent(typeof(Slider)), RequireComponent(typeof(LineRenderer))]
 public class LeverUI : MonoBehaviour
 {
-
+    public bool interactable { get; set; } = true;
 
     private Slider slider;
     private LineRenderer lineRenderer;
@@ -36,6 +36,8 @@ public class LeverUI : MonoBehaviour
     
     public void OnPointerDown()
     {
+        if (interactable == false) return;
+
         lineRenderer.enabled = true;
     }
 
@@ -46,6 +48,8 @@ public class LeverUI : MonoBehaviour
 
     public void OnPointerDrag()
     {
+        if (interactable == false) return;
+
         Vector3 mousePositionWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         // Line from handle to mouse position
         lineRenderer.positionCount = 2;
