@@ -53,14 +53,18 @@ public class CursorEvents : MonoBehaviour, IPointerDownHandler, IPointerEnterHan
         cursorExit.Invoke();
     }
 
+    public void BreakHold() { breakhold = true; }
+    private bool breakhold = false;
+
     private IEnumerator CursorDownLoop()
     {
-        if (hasButton && button.interactable == false) yield break;
+
 
         while (this.enabled)
         {
-            if (Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonUp(0) || breakhold || (hasButton && button.interactable == false))
             {
+                breakhold = false;
                 cursorUp.Invoke();
                 break;
             }
