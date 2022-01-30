@@ -9,7 +9,11 @@ public class PlayRandomSound : MonoBehaviour
     public AudioSource audioSource;
     public void PlayARandomSound()
     {
-        audioSource.PlayOneShot(audioEntry.Random().Clip);
+        audioSource.clip = audioEntry.Random().Clip;
+        audioSource.Play();
+
     }
+    
+    
 
 }
