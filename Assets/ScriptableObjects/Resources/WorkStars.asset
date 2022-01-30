@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourceStartingValues:
     currentValue: 0
-    maxValue: 100
+    maxValue: 11
     growthRate: 0

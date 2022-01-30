@@ -2014,6 +2014,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d28dde3cc5707a441bef9eab6c1ade43, type: 2}
   - {fileID: 11400000, guid: fd8009bebda41a540b40dba1ba93f479, type: 2}
   - {fileID: 11400000, guid: 168cf437bcd412c43bd23ced34e3f3f2, type: 2}
+  - {fileID: 11400000, guid: 5fd2a02567d927147856677f6c9fae01, type: 2}
+  - {fileID: 11400000, guid: 56c61d0596ae80d459d118999f77f919, type: 2}
 --- !u!1 &506873236
 GameObject:
   m_ObjectHideFlags: 0
@@ -4823,9 +4825,9 @@ MonoBehaviour:
   topTileMovement: {fileID: 963194229}
   bottomTileMovement: {fileID: 963194230}
   background: {fileID: 747963875}
-  toRoadDuration: 1
-  toTileDuration: 1
-  horiDuration: 6
+  toRoadDuration: 0.75
+  toTileDuration: 0.75
+  horiDuration: 2.5
 --- !u!114 &963194232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5895,6 +5897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   workStats: {fileID: 128887023}
+  stars: {fileID: 11400000, guid: 5fd2a02567d927147856677f6c9fae01, type: 2}
 --- !u!114 &1589885091
 MonoBehaviour:
   m_ObjectHideFlags: 0
