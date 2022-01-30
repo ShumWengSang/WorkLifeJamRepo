@@ -12,7 +12,7 @@ public class Tile : MonoBehaviour
     public event EventHandler<ValueChangedEventArgs> DemandStrengthChanged;
 
     [Header("Properties")]
-    public Image notificationIcon;
+    public Sprite notificationIcon;
     [SerializeField]
     private float demandStrength = 1f;
 

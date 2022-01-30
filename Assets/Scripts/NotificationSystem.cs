@@ -39,13 +39,18 @@ public class NotificationSystem : MonoBehaviour
         cameraPosition = cameraController.transform.position;
 
         RegisterDayChangeEvents();
-        RegisterCameraMoveEvent();
     }
 
     private void OnDestroy()
     {
         DeregisterDayChangeEvents();
-        DeregisterCameraMoveEvent();
+    }
+
+    private void Update()
+    {
+        cameraPosition = cameraController.transform.position;
+
+        UpdateNotificationPositions();
     }
 
     private void RegisterDayChangeEvents()
@@ -58,16 +63,6 @@ public class NotificationSystem : MonoBehaviour
     {
         dayManager.DayStarted -= OnDayStarted;
         endofDayManager.DayEnded -= OnDayEnded;
-    }
-
-    private void RegisterCameraMoveEvent()
-    {
-        cameraController.Moved += OnCameraMoved;
-    }
-
-    private void DeregisterCameraMoveEvent()
-    {
-        cameraController.Moved -= OnCameraMoved;
     }
 
     private void RegisterTileDemandedAttentionEvent(Tile tile)
@@ -89,6 +84,9 @@ public class NotificationSystem : MonoBehaviour
         GameObject notificationObj = Instantiate(notificationPrefab, rightNotificationPanel);
         UpdateNotificationPosition(tile, notificationObj.transform);
         notifications.Add(tile, notificationObj);
+
+        if (tile.notificationIcon != null)
+            notificationObj.GetComponent<Notification>().icon.sprite = tile.notificationIcon;
     }
 
     private void RemoveNotification(Tile tile)
@@ -113,9 +111,10 @@ public class NotificationSystem : MonoBehaviour
 
     private void UpdateNotificationPosition(Tile tile, Transform notification)
     {
-        Vector2 tileDirection = (Vector2)tile.transform.position - cameraPosition;
+        RectTransform tileTransform = tile.transform as RectTransform;
+        Vector2 tileDirection = (Vector2)tileTransform.position - cameraPosition;
 
-        if (tileDirection.magnitude < 5f)
+        if (tileDirection.magnitude < 75f)
         {
             notification.gameObject.SetActive(false);
             return;
@@ -123,27 +122,31 @@ public class NotificationSystem : MonoBehaviour
 
         notification.gameObject.SetActive(true);
 
-        if (tileDirection.y > 5f)
+        if (tileDirection.y > 15f)
         {
-            notification.transform.parent = topNotificationPanel;
+            notification.transform.SetParent(topNotificationPanel, false);
+            notification.transform.rotation = Quaternion.identity;
             return;
         }
 
-        if (tileDirection.y < -5f)
+        if (tileDirection.y < -15f)
         {
-            notification.transform.parent = bottomNotificationPanel;
+            notification.transform.SetParent(bottomNotificationPanel, false);
+            notification.transform.rotation = Quaternion.identity;
             return;
         }
 
-        if (tileDirection.x > 5f)
+        if (tileDirection.x > 15f)
         {
-            notification.transform.parent = rightNotificationPanel;
+            notification.transform.SetParent(rightNotificationPanel, false);
+            notification.transform.rotation = Quaternion.identity;
             return;
         }
 
-        if (tileDirection.x < -5f)
+        if (tileDirection.x < -15f)
         {
-            notification.transform.parent = leftNotificationPanel;
+            notification.transform.SetParent(leftNotificationPanel, false);
+            notification.transform.rotation = Quaternion.identity;
             return;
         }
     }
@@ -179,12 +182,5 @@ public class NotificationSystem : MonoBehaviour
         Tile tile = sender as Tile;
 
         RemoveNotification(tile);
-    }
-
-    protected virtual void OnCameraMoved(object sender, EventArgs e)
-    {
-        cameraPosition = cameraController.transform.position;
-
-        UpdateNotificationPositions();
     }
 }

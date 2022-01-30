@@ -27,6 +27,8 @@ public class DayManager : MonoBehaviour
         InitializeDay();
 
         DayStarted?.Invoke(this, dayIndex);
+
+        InvokeTileStart();
     }
 
     public void StartNextDay()
@@ -65,7 +67,13 @@ public class DayManager : MonoBehaviour
         foreach (GameObject tileObj in currentDay.tiles)
         {
             tileObj.SetActive(true);
+        }
+    }
 
+    private void InvokeTileStart()
+    {
+        foreach (GameObject tileObj in currentDay.tiles)
+        {
             Tile tile = tileObj.GetComponent<Tile>();
             if (tile == null)
                 return;
