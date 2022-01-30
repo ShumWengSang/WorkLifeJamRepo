@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,69 +24,101 @@ public class CameraVertical : MonoBehaviour
 
     [Min(0f)]
     public float horiDuration = 0.2f;
+    
+    private Sequence seq;
 
     public QuickButton setCameraPosY = new QuickButton(input =>
     {
         CameraVertical demo = input as CameraVertical;
-        demo.transform.position = new Vector3(demo.transform.position.x + 20, demo.topTileMovement.GetCurrTile().transform.position.y, demo.transform.position.z);
+        var position = demo.transform.position;
+        position = new Vector3(position.x + 20, demo.topTileMovement.GetCurrTile().transform.position.y, position.z);
+        demo.transform.position = position;
     });
-
-    // Update is called once per frame
-    void Update()
+    // Copy and pasted from above
+    public void SetCameraPosY()
     {
-        if (!Player.CanInput)
-            return;
+        var position = transform.position;
+        position = new Vector3(position.x + 20, topTileMovement.GetCurrTile().transform.position.y, position.z);
+        transform.position = position;
+    }
 
-        if(Input.GetKeyDown(KeyCode.W))
+    public void ToggleMoveTilesVertical()
+    {
+        if (bottomTileMovement.isActiveAndEnabled)
         {
-            if (topTileMovement.GetActiveTiles() <= 0)
-                return;
-
             MoveToTop();
         }
-
-        if (Input.GetKeyDown(KeyCode.S))
+        else
         {
-            if (bottomTileMovement.GetActiveTiles() <= 0)
-                return;
-
             MoveToBottom();
         }
     }
 
     public void MoveToBottom()
     {
-        if (bottomTileMovement.isActiveAndEnabled)
+        if (bottomTileMovement.GetActiveTiles() <= 0)
             return;
-
+        if (!CanGoBottom())
+            return;
+        Player.CanInput = false;
         SwapTiles();
         Sequence seq = DOTween.Sequence();
         seq.Append(this.transform.DOMoveY(middleRoad.position.y, toRoadDuration));
         seq.Append(this.transform.DOMoveX(bottomTileMovement.GetCurrTile().position.x + 20, horiDuration));
         seq.Append(this.transform.DOMoveY(bottomTileMovement.GetCurrTile().position.y, toTileDuration));
-
+        seq.OnComplete(() => { Player.CanInput = true; });
 
         background.DOColor(Color.clear, toRoadDuration+ horiDuration);
 
     }
+    
 
     public void MoveToTop()
     {
-        if (topTileMovement.isActiveAndEnabled)
+        if (topTileMovement.GetActiveTiles() <= 0)
             return;
-
+        if (!CanGoTop())
+            return;
+        Player.CanInput = false;
         SwapTiles();
-        Sequence seq = DOTween.Sequence();
+        
+        seq = DOTween.Sequence();
         seq.Append(this.transform.DOMoveY(middleRoad.position.y, toRoadDuration));
         seq.Append(this.transform.DOMoveX(topTileMovement.GetCurrTile().position.x + 20, horiDuration));
         seq.Append(this.transform.DOMoveY(topTileMovement.GetCurrTile().position.y, toTileDuration));
-
+        seq.OnComplete(() => { Player.CanInput = true; });
+        seq.SetId("VerticalMovement");
         background.DOColor(Color.white, toRoadDuration + horiDuration );
     }
 
     void SwapTiles()
     {
-        topTileMovement.enabled = !topTileMovement.enabled;
-        bottomTileMovement.enabled = !topTileMovement.enabled;
+        var enabled1 = topTileMovement.enabled;
+        enabled1 = !enabled1;
+        topTileMovement.enabled = enabled1;
+        bottomTileMovement.enabled = !enabled1;
+    }
+
+    public bool CanGoTop()
+    {
+        return bottomTileMovement.isActiveAndEnabled;
+    }
+
+    public bool CanGoBottom()
+    {
+        return topTileMovement.isActiveAndEnabled;
+    }
+
+    public void ResetInternal()
+    {
+        background.color = Color.white;
+    }
+
+    public void KillSequence()
+    {
+        Debug.Log("NUKE");
+        seq?.Kill(true);
+        DOTween.Kill("VerticalMovement");
+        DOTween.KillAll(true);
     }
 }
