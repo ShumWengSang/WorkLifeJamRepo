@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1348,13 +1348,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dayManager: {fileID: 1864977855}
-  endofDayManager: {fileID: 0}
-  cameraController: {fileID: 0}
-  notificationPrefab: {fileID: 0}
-  leftNotificationPanel: {fileID: 0}
-  rightNotificationPanel: {fileID: 0}
-  bottomNotificationPanel: {fileID: 0}
-  topNotificationPanel: {fileID: 0}
+  endofDayManager: {fileID: 802688097}
+  cameraController: {fileID: 963194232}
+  notificationPrefab: {fileID: 4208535700390951846, guid: 71095752086fb3242a0d4fce3a106603, type: 3}
+  leftNotificationPanel: {fileID: 1518768994}
+  rightNotificationPanel: {fileID: 393815630}
+  bottomNotificationPanel: {fileID: 1236169287}
+  topNotificationPanel: {fileID: 762387623}
 --- !u!1 &243608578
 GameObject:
   m_ObjectHideFlags: 0
@@ -1871,19 +1871,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3830230200753369426, guid: 05b4bd1e27a0344439890f6727dca69e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3830230200753369426, guid: 05b4bd1e27a0344439890f6727dca69e, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3830230200753369426, guid: 05b4bd1e27a0344439890f6727dca69e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 47.500004
       objectReference: {fileID: 0}
     - target: {fileID: 3830230200753369426, guid: 05b4bd1e27a0344439890f6727dca69e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 4417526924632964609, guid: 05b4bd1e27a0344439890f6727dca69e, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1943,19 +1943,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5294005654667089556, guid: 05b4bd1e27a0344439890f6727dca69e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5294005654667089556, guid: 05b4bd1e27a0344439890f6727dca69e, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5294005654667089556, guid: 05b4bd1e27a0344439890f6727dca69e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 75.833336
       objectReference: {fileID: 0}
     - target: {fileID: 5294005654667089556, guid: 05b4bd1e27a0344439890f6727dca69e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 7924046971816473671, guid: 05b4bd1e27a0344439890f6727dca69e, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2091,19 +2091,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8643968999726785138, guid: 05b4bd1e27a0344439890f6727dca69e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8643968999726785138, guid: 05b4bd1e27a0344439890f6727dca69e, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8643968999726785138, guid: 05b4bd1e27a0344439890f6727dca69e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 19.166668
       objectReference: {fileID: 0}
     - target: {fileID: 8643968999726785138, guid: 05b4bd1e27a0344439890f6727dca69e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 9108135453465457862, guid: 05b4bd1e27a0344439890f6727dca69e, type: 3}
       propertyPath: m_AnchorMax.y
@@ -5447,7 +5447,7 @@ MonoBehaviour:
   fadeScreen: {fileID: 1107553991}
   statsScreen: {fileID: 1589885090}
   easing: 4
-  dayFadeOutTimer: 1
+  dayFadeOutTimer: 3
   waitTimer: 1
   statsFadeInTimer: 1
   statsFadeOutTimer: 1

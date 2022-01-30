@@ -11,6 +11,8 @@ public class FadeController : MonoBehaviour
     public Color onColor;
     public Color offColor;
 
+    private Coroutine fadeCoroutine { get; set; }
+
     private void Awake()
     {
         myImage = gameObject.GetComponent<Image>();
@@ -18,7 +20,11 @@ public class FadeController : MonoBehaviour
 
     public void FadeIn(float fadeInSpeed)
     {
-        myImage.DOColor(onColor, fadeInSpeed);
+        if (fadeCoroutine != null)
+            StopCoroutine(fadeCoroutine);
+
+        fadeCoroutine = StartCoroutine(FadeCoroutine(offColor, onColor, fadeInSpeed));
+
         Invoke(nameof(TurnOnRayCastBlocking), fadeInSpeed);
     }
 
@@ -30,8 +36,12 @@ public class FadeController : MonoBehaviour
 
     public void FadeOut(float fadeOutSpeed)
     {
+        if (fadeCoroutine != null)
+            StopCoroutine(fadeCoroutine);
+
+        fadeCoroutine = StartCoroutine(FadeCoroutine(onColor, offColor, fadeOutSpeed));
+
         TurnOffRayCastBlocking();
-        myImage.DOColor(offColor, fadeOutSpeed);
     }
 
     public void TurnOnRayCastBlocking( )
@@ -42,5 +52,18 @@ public class FadeController : MonoBehaviour
     public void TurnOffRayCastBlocking()
     {
         myImage.raycastTarget = false;
+    }
+
+    private IEnumerator FadeCoroutine(Color a, Color b, float duration)
+    {
+        float timer = 0f;
+        while (timer <= duration)
+        {
+            timer += Time.deltaTime;
+
+            myImage.color = Color.Lerp(a, b, timer / duration);
+
+            yield return new WaitForEndOfFrame();
+        }
     }
 }
