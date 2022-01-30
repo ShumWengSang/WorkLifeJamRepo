@@ -33,15 +33,16 @@ public class WanderPress : MonoBehaviour
         myTransform = gameObject.transform;
     }
 
+    public float randomReductionSize = 5;
     public void Wander()
     {
         var randWander = Random.Range(minWanderTime, maxWanderTime);
         Wandering = true;
 
-        var X_box = range.TransformPoint(range.rect.x, 0, 0).x - 10;
-        var width_box = range.TransformDirection(range.rect.width,0,0).x - 10;
-        var y_box = range.TransformPoint(0, range.rect.y, 0).y - 10;
-        var height_box = range.TransformDirection(0, range.rect.height, 0).y - 10;
+        var X_box = range.TransformPoint(range.rect.x, 0, 0).x - randomReductionSize;
+        var width_box = range.TransformDirection(range.rect.width,0,0).x - randomReductionSize;
+        var y_box = range.TransformPoint(0, range.rect.y, 0).y - randomReductionSize;
+        var height_box = range.TransformDirection(0, range.rect.height, 0).y - randomReductionSize;
 
         Debug.DrawLine(new Vector2(X_box, y_box), new Vector2(X_box+width_box, y_box), Color.red, randWander);
         Debug.DrawLine(new Vector2(X_box, y_box), new Vector2(X_box, y_box+height_box), Color.green, randWander);
