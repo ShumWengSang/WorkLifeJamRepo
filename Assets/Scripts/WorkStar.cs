@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using DG.Tweening;
 
 public class WorkStar : MonoBehaviour
 {
+    public UnityEvent onCompleted = new UnityEvent();
     public Transform mask;
     public Transform fill;
     public ParticleSystem particles;
@@ -50,6 +52,8 @@ public class WorkStar : MonoBehaviour
         Invoke(nameof(PlayParticles), celebrateTimer-.1f);
         mask.DOMoveY(gameObject.transform.position.y, celebrateTimer);
         fill.DOMoveY(gameObject.transform.position.y, celebrateTimer);
+
+        onCompleted.Invoke();
     }
 
     public void PlayParticles()

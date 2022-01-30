@@ -19,6 +19,8 @@ public abstract class ResourceEvents : MonoBehaviour
     [Tooltip("Events invoked when the value accrues a certain positive or negative total.")]
     private List<ValueAccrueEvent> accrueEvents = new List<ValueAccrueEvent>();
 
+    private DayManager dayManager { get; set; }
+
     private void Start()
     {
         if (value == null)
@@ -30,6 +32,7 @@ public abstract class ResourceEvents : MonoBehaviour
         }
 
         RegisterValueChangeEvents();
+        RegisterDayStartEvent();
     }
 
     private void OnDestroy()
@@ -38,6 +41,23 @@ public abstract class ResourceEvents : MonoBehaviour
             return;
 
         DeregisterValueChangeEvents();
+    }
+
+    private void RegisterDayStartEvent()
+    {
+        dayManager = FindObjectOfType<DayManager>();
+        if (dayManager == null)
+            return;
+
+        dayManager.DayStarted += OnDayStarted;
+    }
+
+    private void DeregisterDayStartEvent()
+    {
+        if (dayManager == null)
+            return;
+
+        dayManager.DayStarted -= OnDayStarted;
     }
 
     private void RegisterValueChangeEvents()
@@ -57,6 +77,15 @@ public abstract class ResourceEvents : MonoBehaviour
 
         UpdateThresholdEvents((IResource)sender, e);
         UpdateAccrueEvents(e);
+    }
+
+    protected virtual void OnDayStarted(object sender, IntEventArgs e)
+    {
+        foreach (ValueAccrueEvent accrueEvent in accrueEvents)
+        {
+            if (accrueEvent.resetOnDayStart)
+                accrueEvent.ResetEvent();
+        }
     }
 
     private void UpdateAccrueEvents(ValueChangedEventArgs e)
