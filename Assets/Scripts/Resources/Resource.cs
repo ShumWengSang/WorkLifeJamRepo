@@ -84,4 +84,9 @@ public class Resource : IResource
     {
         return new Resource(this);
     }
+
+    public void SetMaxValue(float value)
+    {
+        maxValue = value;
+    }
 }

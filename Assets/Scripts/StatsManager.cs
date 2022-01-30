@@ -7,8 +7,12 @@ public class StatsManager : MonoBehaviour
     [SerializeField]
     private WorkStats workStats;
 
-    public void DisplayStats ()
+    private GlobalResource stars;
+
+    public void DisplayStats()
     {
-        workStats.ShowStars(2, 5);
+        int currentStars = Mathf.RoundToInt(stars.GetCurrent());
+        int maxStars = Mathf.RoundToInt(stars.GetMaximum());
+        workStats.ShowStars(currentStars, maxStars);
     }
 }
