@@ -80,7 +80,7 @@ public class AudioManager : MonoBehaviour
     public void PlaySound(AudioEntry entry, int index)
     {
         if (entry == null)
-            return;
+            InitializeEntry(entry);
 
         AudioSourceGroup sourceGroup = GetAudioSourceGroup(entry);
         if (sourceGroup == null)
