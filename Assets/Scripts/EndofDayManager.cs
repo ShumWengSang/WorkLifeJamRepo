@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class EndofDayManager : MonoBehaviour
 {
+    public event EventHandler DayEnded;
+
     public GlobalResource time;
 
     public BeginningofDayManager beginningofDay;
@@ -58,5 +61,10 @@ public class EndofDayManager : MonoBehaviour
     {
         statsScreen.gameObject.SetActive(false);
         beginningofDay.PromptStart();
+    }
+
+    public void InvokeDayEnd()
+    {
+        DayEnded?.Invoke(this, EventArgs.Empty);
     }
 }
