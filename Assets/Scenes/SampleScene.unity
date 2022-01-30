@@ -14598,19 +14598,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimeResource: {fileID: 11400000, guid: 168cf437bcd412c43bd23ced34e3f3f2, type: 2}
   days:
-  - dayLength: 120
-    tiles:
-    - {fileID: 1710866630}
-    - {fileID: 666489532}
-    - {fileID: 954113874}
-    - {fileID: 314910778}
-    - {fileID: 1179103970}
-    - {fileID: 302994847}
-    - {fileID: 2055427735}
-    - {fileID: 2003986176}
-    - {fileID: 1800498938}
-    - {fileID: 2023578373}
-    - {fileID: 643095515}
   - dayLength: 45
     tiles:
     - {fileID: 1710866630}
