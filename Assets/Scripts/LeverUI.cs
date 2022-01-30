@@ -17,7 +17,8 @@ public class LeverUI : MonoBehaviour
     private Slider slider;
     private LineRenderer lineRenderer;
 
-    private RectTransform slideArea;
+    private RectTransform handleArea;
+
 
     [Range(0, 1)]
     public float resistance;
@@ -28,7 +29,7 @@ public class LeverUI : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
 
         lineRenderer.enabled = false;
-        slideArea = (RectTransform)slider.handleRect.parent;
+        handleArea = (RectTransform)slider.handleRect;
     }
 
     
@@ -67,11 +68,28 @@ public class LeverUI : MonoBehaviour
         lineRenderer.SetPosition(1, point);
 
 
-        var rect = slideArea.rect;
-        float mouseWidth = point.x - slideArea.TransformPoint(rect.min.x, rect.min.y, 0).x;
+        var rect = handleArea.rect;
+        float mouseWidth = 0f;
+        switch(slider.direction)
+        {
+            case Slider.Direction.BottomToTop:
+            case Slider.Direction.TopToBottom:
+                {
+                    mouseWidth = point.y - handleArea.TransformPoint(rect.min.x, rect.min.y, 0).y;
+                    if (slider.direction == Slider.Direction.TopToBottom) mouseWidth *= -1;
+                    break;
+                }
+            case Slider.Direction.LeftToRight:
+            case Slider.Direction.RightToLeft:
+                {
+                    mouseWidth = point.y + handleArea.TransformPoint(rect.min.x, rect.min.y, 0).y;
+                    if (slider.direction == Slider.Direction.RightToLeft) mouseWidth *= -1;
+                    break;
+                }
+        }
 
         // Find percentange of width
-        float goalPercentage = mouseWidth / slideArea.rect.width;
+        float goalPercentage = mouseWidth / handleArea.rect.width;
         prevPercentage += (goalPercentage - prevPercentage) * Time.deltaTime * (1 - resistance);
         
         // Set value
@@ -79,6 +97,7 @@ public class LeverUI : MonoBehaviour
     }
 
     private float prevPercentage;
+    public void ResetPercentage() { prevPercentage = 0; }
 
     public void Update()
     {
