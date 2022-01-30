@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using Random = UnityEngine.Random;
 
 public class WanderPress : MonoBehaviour
 {
@@ -18,7 +20,7 @@ public class WanderPress : MonoBehaviour
     public float maxWanderTime = 4f; //yeee-maybe
 
     private bool Wandering = false;
-
+    private Vector3 initialPos;
     private void Awake()
     {
         if (maxWanderTime < minWanderTime) maxWanderTime = minWanderTime;
@@ -31,18 +33,24 @@ public class WanderPress : MonoBehaviour
 
         
         myTransform = gameObject.transform;
+
     }
 
-    public float randomReductionSize = 5;
+    private void Start()
+    {
+        initialPos = transform.position;
+    }
+
+    public Vector2 randomReductionSize;
     public void Wander()
     {
         var randWander = Random.Range(minWanderTime, maxWanderTime);
         Wandering = true;
 
-        var X_box = range.TransformPoint(range.rect.x, 0, 0).x - randomReductionSize;
-        var width_box = range.TransformDirection(range.rect.width,0,0).x - randomReductionSize;
-        var y_box = range.TransformPoint(0, range.rect.y, 0).y - randomReductionSize;
-        var height_box = range.TransformDirection(0, range.rect.height, 0).y - randomReductionSize;
+        var X_box = range.TransformPoint(range.rect.x, 0, 0).x - randomReductionSize.x;
+        var width_box = range.TransformDirection(range.rect.width,0,0).x - randomReductionSize.x;
+        var y_box = range.TransformPoint(0, range.rect.y, 0).y - randomReductionSize.y;
+        var height_box = range.TransformDirection(0, range.rect.height, 0).y + randomReductionSize.y;
 
         Debug.DrawLine(new Vector2(X_box, y_box), new Vector2(X_box+width_box, y_box), Color.red, randWander);
         Debug.DrawLine(new Vector2(X_box, y_box), new Vector2(X_box, y_box+height_box), Color.green, randWander);
@@ -52,27 +60,32 @@ public class WanderPress : MonoBehaviour
 
 
 
-        myTransform.DOMove(new Vector3(x,y,0), randWander);
-        Invoke(nameof(Wander), randWander);
+        myTransform.DOMove(new Vector3(x,y,0), randWander).OnComplete(() => { Wandering = false;});
     }
 
     private void Update()
     {
-        if(Wandering == true && onlyOnInteractable && hasButton && button.interactable == false)
+        if(Wandering == true && onlyOnInteractable && hasButton && button.interactable == false && !alwaysWandering)
         {
+            Debug.Log("Destroy");
             Wandering = false;
             DOTween.Kill(this);
-            CancelInvoke(nameof(Wander));
         }
 
-        if(Wandering == false && (hasButton && button.interactable == true || onlyOnInteractable == false))
+        else if(Wandering == false && (hasButton && button.interactable == true || onlyOnInteractable == false))
         {
             Wander();
         }
 
-        if (Wandering == false && alwaysWandering)
+        else if (Wandering == false && alwaysWandering)
         {
             Wander();
         }
+        
+    }
+
+    public void ResetPositions()
+    {
+        transform.position = initialPos;
     }
 }
