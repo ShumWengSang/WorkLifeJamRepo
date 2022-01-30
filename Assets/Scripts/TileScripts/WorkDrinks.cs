@@ -50,16 +50,21 @@ public class WorkDrinks : MonoBehaviour
         {
             default:
             case 0:
-                {
-                    numberOfPress = 4;
-                    break;
-                }
+            {
+                numberOfPress = 4;
+                break;
+            }
+            case 1:
+            {
+                numberOfPress = 6;
+                break;
+            }
         }
 
-        int i = numberOfPress/2;
-        foreach(var button in upperPressList)
+        int i = numberOfPress / 2;
+        foreach (var button in upperPressList)
         {
-            if(i>0)
+            if (i > 0)
             {
                 button.gameObject.SetActive(true);
             }
@@ -67,8 +72,10 @@ public class WorkDrinks : MonoBehaviour
             {
                 button.gameObject.SetActive(false);
             }
+
             i--;
         }
+
         i = numberOfPress / 2;
         foreach (var button in lowerPressList)
         {
