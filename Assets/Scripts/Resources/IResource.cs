@@ -14,5 +14,6 @@ public interface IResource
     float GetMaximum();
     void AddValue(float value);
     void SetValue(float value);
+    void SetMaxValue(float value);
     void SetGrowthRate(float value);
 }

@@ -86,4 +86,9 @@ public class LocalResource : MonoBehaviour, IResource
     {
         ((IResource)resource).SetGrowthRate(value);
     }
+
+    public void SetMaxValue(float value)
+    {
+        ((IResource)resource).SetMaxValue(value);
+    }
 }
