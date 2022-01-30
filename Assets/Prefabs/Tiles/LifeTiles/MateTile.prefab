@@ -230,7 +230,7 @@ RectTransform:
   - {fileID: 8620917010266630945}
   - {fileID: 2965588902718707504}
   m_Father: {fileID: 5723982305499960990}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -728,7 +728,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &120241859338168296
 RectTransform:
   m_ObjectHideFlags: 0
@@ -743,7 +743,7 @@ RectTransform:
   - {fileID: 2318658086158441804}
   - {fileID: 6869303599679766579}
   m_Father: {fileID: 5723982305499960990}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1461,6 +1461,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MateTile
       objectReference: {fileID: 0}
+    - target: {fileID: 6305588994903068668, guid: b797ec6d418179047bcd2ab3d4e3b7b1, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b797ec6d418179047bcd2ab3d4e3b7b1, type: 3}
 --- !u!224 &5723982305499960990 stripped
@@ -1477,11 +1481,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2780805067197139345, guid: 19a0d00b0d285c94ead72f07eaf161c5, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2780805067551663333, guid: 19a0d00b0d285c94ead72f07eaf161c5, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2780805067983083449, guid: 19a0d00b0d285c94ead72f07eaf161c5, type: 3}
       propertyPath: m_Name
