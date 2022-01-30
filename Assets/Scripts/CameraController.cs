@@ -68,13 +68,13 @@ public class CameraController : MonoBehaviour
     {
         if (verticalCamMovement.CanGoBottom())
         {
-            arrowUp.interactable = false;
-            arrowDown.interactable = true;
+            arrowUp.gameObject.SetActive(false);
+            arrowDown.gameObject.SetActive(true);
         }
         else if (verticalCamMovement.CanGoTop())
         {
-            arrowUp.interactable = true;
-            arrowDown.interactable = false;
+            arrowUp.gameObject.SetActive(true);
+            arrowDown.gameObject.SetActive(false);
         }
     }
 
@@ -82,17 +82,17 @@ public class CameraController : MonoBehaviour
     {
         if (cameraHorizontal.isActiveAndEnabled)
         {
-            arrowLeft.interactable = true;
-            arrowRight.interactable = true;
+            arrowLeft.gameObject.SetActive(true);
+            arrowRight.gameObject.SetActive(true);
             if (!cameraHorizontal.CanMoveLeft())
             {
                 // Turn arrow left off
-                arrowLeft.interactable = false;
+                arrowLeft.gameObject.SetActive(false);
             }
             else if (!cameraHorizontal.CanMoveRight())
             {
                 // Turn right arrow off
-                arrowRight.interactable = false;
+                arrowRight.gameObject.SetActive(false);
             }
         }
     }
