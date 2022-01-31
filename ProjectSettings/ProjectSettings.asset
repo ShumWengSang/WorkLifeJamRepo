@@ -14,8 +14,8 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: DefaultCompany
   productName: WorkLifeJam
-  defaultCursor: {fileID: 2800000, guid: d55adb27686ad79498f154505f384972, type: 3}
-  cursorHotspot: {x: 0.45, y: 0.35}
+  defaultCursor: {fileID: 2800000, guid: 51d4db79993395e428b470aee7ba6ba0, type: 3}
+  cursorHotspot: {x: 0.35, y: 0.15}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
