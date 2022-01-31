@@ -51,15 +51,20 @@ public class AudioManager : MonoBehaviour
 
         foreach (var entry in AudioEntries)
         {
-            var key = entry;
-            var sourceGroup = InitializeEntry(entry);
+            AddEntry(entry);
+        }
+    }
 
-            AudioSources.Add(key, sourceGroup);
+    private void AddEntry(AudioEntry entry)
+    {
+        var key = entry;
+        var sourceGroup = InitializeEntry(entry);
 
-            if (entry.PlayOnAwake)
-            {
-                PlaySound(entry);
-            }
+        AudioSources.Add(key, sourceGroup);
+
+        if (entry.PlayOnAwake)
+        {
+            PlaySound(entry);
         }
     }
 
@@ -80,7 +85,7 @@ public class AudioManager : MonoBehaviour
     public void PlaySound(AudioEntry entry, int index)
     {
         if (entry == null)
-            InitializeEntry(entry);
+            AddEntry(entry);
 
         AudioSourceGroup sourceGroup = GetAudioSourceGroup(entry);
         if (sourceGroup == null)
