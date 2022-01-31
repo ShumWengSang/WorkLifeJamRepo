@@ -7,9 +7,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4239016133221402281, guid: 0c9b9f6c72e815c469d9ef0e046e8bf4, type: 3}
+      propertyPath: OnDayStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5414600406786525994, guid: 0c9b9f6c72e815c469d9ef0e046e8bf4, type: 3}
       propertyPath: m_Name
-      value: WorkDrinksTile
+      value: WorkDrinksTile U3
       objectReference: {fileID: 0}
     - target: {fileID: 5414600406786525997, guid: 0c9b9f6c72e815c469d9ef0e046e8bf4, type: 3}
       propertyPath: m_Pivot.x

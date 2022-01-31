@@ -22,6 +22,13 @@ public class Tile : MonoBehaviour
     public UnityEvent OnDemandAttention = new UnityEvent();
     public UnityEvent<FloatEventArgs> OnDemandStrengthChanged = new UnityEvent<FloatEventArgs>();
 
+    public GlobalResource workStars;
+
+    public void RegisterStars(int i)
+    {
+        workStars.SetMaxValue(i);
+    }
+
     public void Upgrade()
     {
         OnUpgrade.Invoke();

@@ -103,5 +103,9 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6274742543944605913, guid: f3ed9297c3e0ad54e980741f8867f440, type: 3}
+      propertyPath: OnDayStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3ed9297c3e0ad54e980741f8867f440, type: 3}
