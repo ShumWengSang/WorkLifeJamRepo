@@ -11584,6 +11584,10 @@ PrefabInstance:
       propertyPath: lengthInSec
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 3549259986660954730, guid: 1ac961aafc55292479b7746fa0c86dce, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6988931945306740549, guid: 1ac961aafc55292479b7746fa0c86dce, type: 3}
       propertyPath: m_RootOrder
       value: 4
