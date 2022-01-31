@@ -23,7 +23,7 @@ public class CameraController : MonoBehaviour
     private void Start()
     {
         var dayManager = GameObject.FindObjectOfType<DayManager>();
-        // dayManager.DayStarted += DayManagerOnDayStarted;
+        dayManager.DayStarted += DayManagerOnDayStarted;
         // Evaluate whether to turn on/off arrows
         OnStart();
 
@@ -42,8 +42,14 @@ public class CameraController : MonoBehaviour
     {
         int amountKilled = DOTween.Kill(this.transform, true);
         Debug.Log("Killed " + amountKilled.ToString());
-        topHorizontal.SetCameraPosX();
-        verticalCamMovement.SetCameraPosY();
+
+        if (verticalCamMovement.CanGoTop())
+        {
+            ToggleUpDownMovement();
+        }
+        topHorizontal.MoveToStartingTile();
+        ToggleHorizontalArrows();
+        ToggleVerticalArrows();
     }
 
     public void Update()
@@ -133,6 +139,7 @@ public class CameraController : MonoBehaviour
     {
         verticalCamMovement.ToggleMoveTilesVertical();
         ToggleVerticalArrows();
+        ToggleHorizontalArrows();
     }
 
     public void KillTweensHere()
