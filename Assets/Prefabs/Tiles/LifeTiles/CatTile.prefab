@@ -453,12 +453,59 @@ MonoBehaviour:
               m_ObjectArgument: {fileID: 0}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
               m_IntArgument: 0
-              m_FloatArgument: 2
+              m_FloatArgument: 0.5
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 11400000, guid: 56c61d0596ae80d459d118999f77f919, type: 2}
+            m_TargetAssemblyTypeName: GlobalResource, Assembly-CSharp
+            m_MethodName: Subtract
+            m_Mode: 4
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 1.5
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+  - thresholdValue: 0
+    unityEvent:
+      localResourceCost:
+        resource: {fileID: 0}
+        cost: 0
+      globalResourceCost:
+        resource: {fileID: 0}
+        cost: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 3d1173bee3bc9ed40b6fd3d4654b8a3a, type: 2}
+            m_TargetAssemblyTypeName: AudioFacilitator, JosephCrump_Audio2D
+            m_MethodName: PlaySound
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 11400000, guid: 69e1b19de410bd3498307b5206368992, type: 2}
+              m_ObjectArgumentAssemblyTypeName: AudioEntry, JosephCrump_Audio2D
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 4327560271112129152}
+            m_TargetAssemblyTypeName: LocalResource, Assembly-CSharp
+            m_MethodName: AddValue
+            m_Mode: 4
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0.5
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
   accrueEvents: []
-  resource: {fileID: 0}
+  resource: {fileID: 4004812519452533914}
 --- !u!1 &985994982490090646
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,6 +652,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 56c61d0596ae80d459d118999f77f919, type: 2}
+        m_TargetAssemblyTypeName: GlobalResource, Assembly-CSharp
+        m_MethodName: Subtract
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6472951585809214300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -685,7 +744,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -880,6 +939,18 @@ MonoBehaviour:
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
               m_IntArgument: 0
               m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 11400000, guid: 56c61d0596ae80d459d118999f77f919, type: 2}
+            m_TargetAssemblyTypeName: GlobalResource, Assembly-CSharp
+            m_MethodName: Subtract
+            m_Mode: 4
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 1.5
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
