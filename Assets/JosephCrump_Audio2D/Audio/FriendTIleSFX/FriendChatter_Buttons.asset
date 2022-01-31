@@ -21,5 +21,4 @@ MonoBehaviour:
   Loop: 0
   Mixer: {fileID: 4629807470469930581, guid: 7cf488c0483a4394f82479b58009f289, type: 2}
   Variations:
-  - Clip: {fileID: 0}
-  - Clip: {fileID: 0}
+  - Clip: {fileID: 8300000, guid: 9e64a072dbff8614cbbde8603037c897, type: 3}
