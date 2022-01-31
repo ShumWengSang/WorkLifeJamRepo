@@ -20,6 +20,8 @@ public class DayManager : MonoBehaviour
     private List<GameObject> parentTiles = new List<GameObject>();
     private int dayIndex = -1;
 
+    public Transform endScreen;
+
     public void StartDay(int index)
     {
         dayIndex = index;
@@ -34,8 +36,15 @@ public class DayManager : MonoBehaviour
     public void StartNextDay()
     {
         dayIndex++;
-
-        StartDay(dayIndex);
+        
+        if(dayIndex < days.Count)
+            StartDay(dayIndex);
+        else
+        {
+            // End of day
+            endScreen.gameObject.SetActive(true);
+            endScreen.GetComponent<MetaStatManager>().DisplayStats();
+        }
     }
 
     /// <summary>
