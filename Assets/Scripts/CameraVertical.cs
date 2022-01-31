@@ -97,7 +97,7 @@ public class CameraVertical : MonoBehaviour
         background.DOColor(Color.white, toRoadDuration + horiDuration );
     }
 
-    void SwapTiles()
+    public void SwapTiles()
     {
         var enabled1 = topTileMovement.enabled;
         enabled1 = !enabled1;

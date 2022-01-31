@@ -45,8 +45,9 @@ public class CameraController : MonoBehaviour
 
         if (verticalCamMovement.CanGoTop())
         {
-            ToggleUpDownMovement();
+            verticalCamMovement.SwapTiles();
         }
+
         topHorizontal.MoveToStartingTile();
         ToggleHorizontalArrows();
         ToggleVerticalArrows();
