@@ -4212,6 +4212,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lever
       objectReference: {fileID: 0}
+    - target: {fileID: 2780805067983083453, guid: 19a0d00b0d285c94ead72f07eaf161c5, type: 3}
+      propertyPath: resistance
+      value: 0.853
+      objectReference: {fileID: 0}
     - target: {fileID: 2780805067983083454, guid: 19a0d00b0d285c94ead72f07eaf161c5, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
