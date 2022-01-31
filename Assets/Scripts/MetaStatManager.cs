@@ -10,11 +10,11 @@ public class MetaStatManager : MonoBehaviour
     public static int totalStars = 0;
     public static int achievedStars = 0;
 
-    public float achievedPlant;
-    public float achievedCat;
-    public float achievedHobby;
-    public float achievedFren;
-    public float achievedMate;
+    public static float achievedPlant;
+    public static float achievedCat;
+    public static float achievedHobby;
+    public static float achievedFren;
+    public static float achievedMate;
 
     private int totalPlant = 11;
     private int totalCat = 10;
