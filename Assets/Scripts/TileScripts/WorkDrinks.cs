@@ -95,7 +95,7 @@ public class WorkDrinks : MonoBehaviour
         foreach(var button in totalPressList)
         {
             button.interactable = false;
-            button.GetComponent<WanderPress>().ResetPositions();
+            button.GetComponent<WanderPress>()?.ResetPositions();
         }
 
         hold.interactable = true;
