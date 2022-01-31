@@ -46,11 +46,11 @@ public class CameraVertical : MonoBehaviour
 
     public void ToggleMoveTilesVertical()
     {
-        if (bottomTileMovement.isActiveAndEnabled)
+        if (CanGoTop())
         {
             MoveToTop();
         }
-        else
+        else if (CanGoBottom())
         {
             MoveToBottom();
         }
@@ -97,7 +97,7 @@ public class CameraVertical : MonoBehaviour
         background.DOColor(Color.white, toRoadDuration + horiDuration );
     }
 
-    void SwapTiles()
+    public void SwapTiles()
     {
         var enabled1 = topTileMovement.enabled;
         enabled1 = !enabled1;
@@ -107,12 +107,12 @@ public class CameraVertical : MonoBehaviour
 
     public bool CanGoTop()
     {
-        return !topTileMovement.isActiveAndEnabled;
+        return !topTileMovement.isActiveAndEnabled && topTileMovement.GetActiveTiles() > 0;
     }
 
     public bool CanGoBottom()
     {
-        return !bottomTileMovement.isActiveAndEnabled;
+        return !bottomTileMovement.isActiveAndEnabled && bottomTileMovement.GetActiveTiles() > 0;
     }
 
     public void ResetInternal()
